@@ -1,10 +1,1442 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My GitHub Site</title>
-  </head>
-  <body>
-    <h1>Hello, World!</h1>
-    <p>Welcome to my GitHub Pages website.</p>
-  </body>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PŪJĀ - Sacred Heritage, Rituals & Divine Celebrations</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        velvet: {
+                            900: '#0d0714',
+                            800: '#160926',
+                            700: '#23103c',
+                            600: '#321952',
+                        },
+                        gold: {
+                            300: '#ffe57f',
+                            400: '#ffd700',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        saffron: {
+                            400: '#ffaa44',
+                            500: '#ff9933',
+                            600: '#e67e22',
+                        },
+                        crimson: {
+                            500: '#e63946',
+                            600: '#c52838',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Cinzel', 'serif'],
+                        body: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom Glowing & Aesthetic Utilities */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d0714;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        .font-heading {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Glassmorphism background */
+        .glass-card {
+            background: rgba(22, 9, 38, 0.65);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 215, 0, 0.18);
+        }
+
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 215, 0, 0.45);
+            box-shadow: 0 10px 30px -10px rgba(255, 153, 51, 0.3);
+        }
+
+        /* Gold Gradient Text */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fff3b0 0%, #ffd700 50%, #ff9933 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.25);
+        }
+
+        /* Flame Animation */
+        @keyframes diyaFlame {
+            0%, 100% { transform: scale(1) rotate(-1deg); filter: drop-shadow(0 0 8px #ff9933) drop-shadow(0 0 15px #ffd700); }
+            50% { transform: scale(1.12) rotate(2deg); filter: drop-shadow(0 0 14px #ff6b35) drop-shadow(0 0 22px #ffd700); }
+        }
+        .flame-active {
+            animation: diyaFlame 1.8s infinite ease-in-out;
+        }
+
+        /* Bell Swing Animation */
+        @keyframes bellSwing {
+            0%, 100% { transform: rotate(0deg); }
+            20% { transform: rotate(18deg); }
+            40% { transform: rotate(-14deg); }
+            60% { transform: rotate(8deg); }
+            80% { transform: rotate(-4deg); }
+        }
+        .animate-bell {
+            animation: bellSwing 0.8s ease-in-out;
+            transform-origin: top center;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0714;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #321952;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff9933;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen text-slate-100 selection:bg-gold-500 selection:text-velvet-900">
+
+    <!-- Interactive Canvas Background (Floating Diyas & Falling Petals) -->
+    <canvas id="bgCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-80"></canvas>
+
+    <!-- Main Outer Wrapper -->
+    <div class="relative z-10 flex flex-col min-h-screen">
+
+        <!-- ================= NAVBAR ================= -->
+        <header class="sticky top-0 z-50 glass-card border-b border-gold-400/20 px-4 lg:px-8 py-3.5 transition-all">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-saffron-600 to-gold-400 p-0.5 shadow-lg shadow-gold-500/20 group-hover:rotate-12 transition-transform">
+                        <div class="w-full h-full bg-velvet-900 rounded-full flex items-center justify-center">
+                            <span class="text-xl">🪔</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="font-heading font-bold text-xl lg:text-2xl tracking-wider gold-gradient-text block leading-none">PŪJĀ</span>
+                        <span class="text-[10px] tracking-widest text-saffron-400/90 uppercase font-medium">Sacred Traditions</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-300">
+                    <a href="#hero" class="hover:text-gold-400 transition-colors">Home</a>
+                    <a href="#chamber" class="hover:text-gold-400 transition-colors">Virtual Chamber</a>
+                    <a href="#festivals" class="hover:text-gold-400 transition-colors">Festivals</a>
+                    <a href="#samagri" class="hover:text-gold-400 transition-colors">Steps & Samagri</a>
+                    <a href="#recipes" class="hover:text-gold-400 transition-colors">Prasadam</a>
+                    <a href="#mantras" class="hover:text-gold-400 transition-colors">Mantras</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center gap-3">
+                    <!-- Audio Synth Toggle -->
+                    <button id="ambientSoundBtn" onclick="toggleAmbientTone()" title="Toggle Temple Ambient Bell Synth" class="flex items-center gap-2 px-3 py-1.5 rounded-full glass-card hover:bg-velvet-700 text-gold-400 text-xs font-semibold border border-gold-400/30 transition">
+                        <span id="soundIcon">🔔</span>
+                        <span id="soundLabel" class="hidden sm:inline">Temple Ambient</span>
+                    </button>
+
+                    <!-- GitHub Deploy Guide Button -->
+                    <button onclick="openModal('githubModal')" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-saffron-500 to-gold-400 text-velvet-900 font-semibold text-xs hover:brightness-110 shadow-md transition flex items-center gap-1.5">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        <span class="hidden sm:inline">GitHub Setup</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- ================= HERO SECTION ================= -->
+        <section id="hero" class="relative pt-12 pb-20 md:pt-20 md:pb-32 px-4 overflow-hidden">
+            <div class="max-w-5xl mx-auto text-center relative z-10">
+                
+                <!-- Radiant Top Emblem -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-gold-400/40 mb-6 text-gold-300 text-xs sm:text-sm tracking-wider uppercase">
+                    <span class="animate-pulse text-saffron-400">✨</span> Eternal Vedic Traditions & Spiritual Harmony <span class="animate-pulse text-saffron-400">✨</span>
+                </div>
+
+                <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
+                    PŪJĀ: Sacred Heritage, <br class="hidden sm:inline" />
+                    <span class="gold-gradient-text">Rituals & Divine Celebrations</span>
+                </h1>
+
+                <p class="text-slate-300 text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed font-light">
+                    Explore the profound spiritual philosophy, ancient Vedic rites, vibrant festive traditions, sacred offerings (Samagri), and timeless mantras that bring harmony, light, and devotion.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <a href="#chamber" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-saffron-500 via-gold-400 to-saffron-600 text-velvet-900 font-bold text-sm tracking-wide hover:brightness-110 shadow-lg shadow-saffron-500/25 transition transform hover:-translate-y-0.5">
+                        🪔 Enter Virtual Chamber
+                    </a>
+                    <a href="#festivals" class="px-8 py-3.5 rounded-full glass-card hover:bg-velvet-700 text-gold-300 font-semibold text-sm border border-gold-400/40 transition">
+                        📿 Explore Major Pujas
+                    </a>
+                    <a href="#mantras" class="px-8 py-3.5 rounded-full glass-card hover:bg-velvet-700 text-slate-200 font-semibold text-sm border border-slate-600/40 transition">
+                        🕉️ Sacred Mantras
+                    </a>
+                </div>
+
+                <!-- Stats Ticker -->
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                    <div class="glass-card p-4 rounded-2xl">
+                        <div class="font-heading text-2xl sm:text-3xl font-bold text-gold-400">16</div>
+                        <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Shodashopachara Steps</div>
+                    </div>
+                    <div class="glass-card p-4 rounded-2xl">
+                        <div class="font-heading text-2xl sm:text-3xl font-bold text-saffron-400">8+</div>
+                        <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Major Festivals</div>
+                    </div>
+                    <div class="glass-card p-4 rounded-2xl">
+                        <div class="font-heading text-2xl sm:text-3xl font-bold text-gold-400">100%</div>
+                        <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Authentic Traditions</div>
+                    </div>
+                    <div class="glass-card p-4 rounded-2xl">
+                        <div class="font-heading text-2xl sm:text-3xl font-bold text-saffron-400">Interactive</div>
+                        <div class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Virtual Shrine Altar</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= GLOBAL SEARCH BAR ================= -->
+        <section class="max-w-4xl mx-auto px-4 w-full mb-12">
+            <div class="glass-card rounded-2xl p-3 flex items-center gap-3 border border-gold-400/30 shadow-xl">
+                <span class="text-xl text-gold-400 pl-3">🔍</span>
+                <input type="text" id="globalSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Search festivals, mantras (e.g. Gayatri, Durga), samagri, or bhog recipes..." class="w-full bg-transparent text-slate-100 placeholder-slate-400 focus:outline-none text-sm md:text-base">
+                <button onclick="clearSearch()" id="clearSearchBtn" class="hidden px-3 py-1 text-xs text-slate-400 hover:text-gold-400">Clear</button>
+            </div>
+            <div id="searchResultsCount" class="hidden text-xs text-saffron-400 mt-2 px-2"></div>
+        </section>
+
+        <!-- ================= VIRTUAL PUJA EXPERIENCE CHAMBER ================= -->
+        <section id="chamber" class="max-w-6xl mx-auto px-4 py-12 w-full">
+            <div class="text-center mb-10">
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-gold-400 mb-3">Sacred Virtual Puja Chamber</h2>
+                <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">Perform devotion virtually right from your screen. Light the sacred flame, ring the brass bell, scatter marigold petals, and recite ancient chants.</p>
+            </div>
+
+            <!-- Altar Canvas / Card Container -->
+            <div class="glass-card rounded-3xl p-6 sm:p-10 border border-gold-400/40 relative overflow-hidden shadow-2xl">
+                
+                <!-- Background Glowing Halo -->
+                <div class="absolute inset-0 bg-gradient-to-b from-saffron-500/10 via-transparent to-velvet-900 pointer-events-none"></div>
+
+                <div class="relative z-10 flex flex-col items-center">
+                    
+                    <!-- Top Hanging Brass Bell -->
+                    <div class="mb-6 cursor-pointer group" onclick="ringTempleBell()" title="Click to ring the Temple Bell">
+                        <div id="hangingBell" class="text-5xl sm:text-6xl text-gold-400 filter drop-shadow-[0_0_15px_rgba(255,215,0,0.5)] transition-transform">
+                            🔔
+                        </div>
+                        <div class="text-[10px] text-center text-saffron-400 tracking-wider mt-1 uppercase font-semibold">Ring Bell</div>
+                    </div>
+
+                    <!-- Main Shrine Icon / Deity Halo -->
+                    <div class="w-44 h-44 sm:w-56 sm:h-56 rounded-full border-2 border-gold-400/40 flex items-center justify-center relative my-4 bg-velvet-900/80 shadow-[0_0_50px_rgba(255,153,51,0.2)]">
+                        <!-- Glowing Aura Rings -->
+                        <div class="absolute inset-2 rounded-full border border-saffron-500/30 animate-ping opacity-30"></div>
+                        <div class="absolute inset-4 rounded-full border border-gold-400/20"></div>
+                        
+                        <!-- Sacred Om Centerpiece -->
+                        <div class="text-6xl sm:text-7xl font-heading text-gold-400 drop-shadow-[0_0_20px_rgba(255,215,0,0.8)] select-none">
+                            🕉️
+                        </div>
+
+                        <!-- Offered Prasadam Display overlay -->
+                        <div id="prasadamOverlay" class="absolute bottom-2 hidden bg-velvet-800/90 text-gold-300 px-3 py-1 rounded-full text-xs border border-gold-400/40 animate-bounce">
+                            🍯 Bhog Offered
+                        </div>
+                    </div>
+
+                    <!-- Glowing Diya Pedestal -->
+                    <div class="flex items-center justify-center gap-8 my-6">
+                        <!-- Left Diya -->
+                        <div class="flex flex-col items-center">
+                            <div id="leftDiyaFlame" class="text-3xl sm:text-4xl opacity-30 transition-all duration-300">🔥</div>
+                            <div class="text-3xl">🪔</div>
+                        </div>
+
+                        <!-- Main Central Blessing Message -->
+                        <div id="altarStatusText" class="text-center max-w-sm px-4 py-2 rounded-xl glass-card text-xs sm:text-sm text-gold-300 border-gold-400/30">
+                            Perform your virtual rituals below to illuminate the shrine.
+                        </div>
+
+                        <!-- Right Diya -->
+                        <div class="flex flex-col items-center">
+                            <div id="rightDiyaFlame" class="text-3xl sm:text-4xl opacity-30 transition-all duration-300">🔥</div>
+                            <div class="text-3xl">🪔</div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Altar Action Buttons -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full max-w-2xl mt-4">
+                        <button onclick="toggleDiya()" class="px-4 py-3 rounded-2xl glass-card hover:bg-velvet-700 border border-gold-400/30 text-slate-100 text-xs sm:text-sm font-medium flex items-center justify-center gap-2 transition active:scale-95">
+                            <span>🪔</span> <span id="diyaBtnLabel">Light Diyas</span>
+                        </button>
+
+                        <button onclick="ringTempleBell()" class="px-4 py-3 rounded-2xl glass-card hover:bg-velvet-700 border border-gold-400/30 text-slate-100 text-xs sm:text-sm font-medium flex items-center justify-center gap-2 transition active:scale-95">
+                            <span>🔔</span> Ring Bell
+                        </button>
+
+                        <button onclick="offerFlowers()" class="px-4 py-3 rounded-2xl glass-card hover:bg-velvet-700 border border-gold-400/30 text-slate-100 text-xs sm:text-sm font-medium flex items-center justify-center gap-2 transition active:scale-95">
+                            <span>🌸</span> Offer Petals
+                        </button>
+
+                        <button onclick="offerBhog()" class="px-4 py-3 rounded-2xl glass-card hover:bg-velvet-700 border border-gold-400/30 text-slate-100 text-xs sm:text-sm font-medium flex items-center justify-center gap-2 transition active:scale-95">
+                            <span>🥣</span> Offer Bhog
+                        </button>
+                    </div>
+
+                    <!-- Ritual Counter Badge -->
+                    <div class="mt-6 text-xs text-slate-400">
+                        Total Ritual Actions Performed: <span id="ritualCount" class="font-bold text-gold-400">0</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= MAJOR FESTIVALS SHOWCASE ================= -->
+        <section id="festivals" class="max-w-7xl mx-auto px-4 py-12 w-full">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-gold-400 mb-2">Major Puja Festivals</h2>
+                    <p class="text-slate-300 text-sm sm:text-base">Grand annual celebrations, deep legends, and sacred timing.</p>
+                </div>
+                
+                <!-- Category Filter Pills -->
+                <div class="flex flex-wrap gap-2 text-xs font-semibold" id="festivalFilterContainer">
+                    <button onclick="filterFestivals('all')" class="fest-filter-btn px-4 py-2 rounded-full bg-gold-500 text-velvet-900 border border-gold-400 shadow-md">All Pujas</button>
+                    <button onclick="filterFestivals('autumn')" class="fest-filter-btn px-4 py-2 rounded-full glass-card text-slate-300 border border-slate-700 hover:text-gold-400">Autumn (Sharad)</button>
+                    <button onclick="filterFestivals('spring')" class="fest-filter-btn px-4 py-2 rounded-full glass-card text-slate-300 border border-slate-700 hover:text-gold-400">Spring (Vasant)</button>
+                    <button onclick="filterFestivals('monsoon')" class="fest-filter-btn px-4 py-2 rounded-full glass-card text-slate-300 border border-slate-700 hover:text-gold-400">Monsoon / Harvest</button>
+                </div>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="festivalsGrid">
+                
+                <!-- Durga Puja -->
+                <div class="fest-card glass-card glass-card-hover rounded-3xl p-6 border border-gold-400/30 flex flex-col justify-between" data-category="autumn" data-keywords="durga puja sharadotsav navratri pushpanjali dhunuchi bijoya mahishasura">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs uppercase font-bold tracking-wider px-3 py-1 rounded-full bg-crimson-500/20 text-crimson-500 border border-crimson-500/30">Sharadotsav</span>
+                            <span class="text-xs text-saffron-400">Autumn (Sep - Oct)</span>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-gold-300 mb-2">Durga Puja</h3>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                            The grand celebration of Goddess Durga's victory over Mahishasura, symbolizing the triumph of divine righteousness over evil forces.
+                        </p>
+                        <div class="space-y-2 text-xs text-slate-300 mb-4 bg-velvet-900/50 p-3 rounded-xl border border-slate-800">
+                            <div><strong class="text-gold-400">Key Rituals:</strong> Bodhon, Pushpanjali, Dhunuchi Naach, Sandhi Puja, Bijoya Dashami.</div>
+                            <div><strong class="text-gold-400">Traditional Bhog:</strong> Khichuri, Labra, Payesh, Sandesh.</div>
+                        </div>
+                    </div>
+                    <button onclick="showFestivalDetail('Durga Puja', 'Durga Puja celebrates the cosmic feminine power (Shakti). Across five main days (Sasthi to Dashami), intricate clay idols housed in artistic Pandals receive worship with Vedic chants, rhythmic Dhak drum beats, and fragrant camphor incense. On Bijoya Dashami, Goddess Durga returns to Mount Kailash as devotees share sweets and warm greetings.')" class="w-full py-2.5 rounded-xl bg-velvet-800 hover:bg-gold-500 hover:text-velvet-900 text-gold-300 text-xs font-semibold border border-gold-400/30 transition">
+                        Explore Full Ritual Details &rarr;
+                    </button>
+                </div>
+
+                <!-- Diwali & Lakshmi Puja -->
+                <div class="fest-card glass-card glass-card-hover rounded-3xl p-6 border border-gold-400/30 flex flex-col justify-between" data-category="autumn" data-keywords="diwali lakshmi puja festival of lights rangoli diya kubera wealth">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs uppercase font-bold tracking-wider px-3 py-1 rounded-full bg-saffron-500/20 text-saffron-400 border border-saffron-500/30">Festival of Lights</span>
+                            <span class="text-xs text-saffron-400">Kartik Amavasya</span>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-gold-300 mb-2">Diwali & Lakshmi Puja</h3>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                            Illuminating homes with rows of glowing diyas to welcome Goddess Lakshmi (Wealth & Prosperity) and Lord Ganesha into purified hearts and dwellings.
+                        </p>
+                        <div class="space-y-2 text-xs text-slate-300 mb-4 bg-velvet-900/50 p-3 rounded-xl border border-slate-800">
+                            <div><strong class="text-gold-400">Key Rituals:</strong> House cleaning, Rangoli art, Diya lighting, Chopda Pujan, Kubera Aradhana.</div>
+                            <div><strong class="text-gold-400">Traditional Bhog:</strong> Besan Ladoo, Kheer, Kaju Katli, Panchamrit.</div>
+                        </div>
+                    </div>
+                    <button onclick="showFestivalDetail('Diwali & Lakshmi Puja', 'Diwali marks the victory of light over darkness and knowledge over ignorance. On Amavasya night, devotees clean their homes, decorate entryways with bright Rangoli patterns, light oil diyas, and invoke Goddess Lakshmi for spiritual and material well-being.')" class="w-full py-2.5 rounded-xl bg-velvet-800 hover:bg-gold-500 hover:text-velvet-900 text-gold-300 text-xs font-semibold border border-gold-400/30 transition">
+                        Explore Full Ritual Details &rarr;
+                    </button>
+                </div>
+
+                <!-- Ganesh Chaturthi -->
+                <div class="fest-card glass-card glass-card-hover rounded-3xl p-6 border border-gold-400/30 flex flex-col justify-between" data-category="monsoon" data-keywords="ganesh chaturthi vinayaka modak visarjan sthapana vighnaharta">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs uppercase font-bold tracking-wider px-3 py-1 rounded-full bg-gold-500/20 text-gold-400 border border-gold-500/30">Vinayaka Utsav</span>
+                            <span class="text-xs text-saffron-400">Bhadrapada (Aug - Sep)</span>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-gold-300 mb-2">Ganesh Chaturthi</h3>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                            Honoring Lord Ganesha—the remover of obstacles (Vighnaharta) and deity of wisdom, new beginnings, and prosperity.
+                        </p>
+                        <div class="space-y-2 text-xs text-slate-300 mb-4 bg-velvet-900/50 p-3 rounded-xl border border-slate-800">
+                            <div><strong class="text-gold-400">Key Rituals:</strong> Pranapratishtha, 21 Durva grass offerings, Atharvashirsha recitation, Visarjan procession.</div>
+                            <div><strong class="text-gold-400">Traditional Bhog:</strong> Ukadiche Modak (steamed sweet dumplings), Motichoor Ladoo, Puran Poli.</div>
+                        </div>
+                    </div>
+                    <button onclick="showFestivalDetail('Ganesh Chaturthi', 'Spanning 10 joyous days, Lord Ganesha is welcomed into homes and pandals with Vedic hymns. 21 blades of fresh Durva grass and 21 steamed Modaks are offered daily. The festival culminates in grand immersion (Visarjan) symbolizing the cycle of creation and dissolution.')" class="w-full py-2.5 rounded-xl bg-velvet-800 hover:bg-gold-500 hover:text-velvet-900 text-gold-300 text-xs font-semibold border border-gold-400/30 transition">
+                        Explore Full Ritual Details &rarr;
+                    </button>
+                </div>
+
+                <!-- Saraswati Puja -->
+                <div class="fest-card glass-card glass-card-hover rounded-3xl p-6 border border-gold-400/30 flex flex-col justify-between" data-category="spring" data-keywords="saraswati puja vasant panchami yellow learning hate khori knowledge arts veena">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs uppercase font-bold tracking-wider px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/30">Vasant Panchami</span>
+                            <span class="text-xs text-saffron-400">Spring (Jan - Feb)</span>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-gold-300 mb-2">Saraswati Puja</h3>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                            Welcoming spring by worshipping Goddess Saraswati—the divine embodiment of knowledge, music, arts, wisdom, and speech.
+                        </p>
+                        <div class="space-y-2 text-xs text-slate-300 mb-4 bg-velvet-900/50 p-3 rounded-xl border border-slate-800">
+                            <div><strong class="text-gold-400">Key Rituals:</strong> Wearing bright yellow attire, placing books and instruments at goddess feet, Hate Khori (child learning ceremony).</div>
+                            <div><strong class="text-gold-400">Traditional Bhog:</strong> Yellow Khichdi, Kesari Halwa, Plum chutney, Rajbhog.</div>
+                        </div>
+                    </div>
+                    <button onclick="showFestivalDetail('Saraswati Puja', 'Devotees dress in saffron and yellow to match blooming mustard fields. Students and artists place their books, pens, musical instruments, and paintbrushes before Goddess Saraswati to seek her blessings of pure intellect and creativity.')" class="w-full py-2.5 rounded-xl bg-velvet-800 hover:bg-gold-500 hover:text-velvet-900 text-gold-300 text-xs font-semibold border border-gold-400/30 transition">
+                        Explore Full Ritual Details &rarr;
+                    </button>
+                </div>
+
+                <!-- Mahashivratri -->
+                <div class="fest-card glass-card glass-card-hover rounded-3xl p-6 border border-gold-400/30 flex flex-col justify-between" data-category="spring" data-keywords="mahashivratri shiva lingam abhishekam bilva leaves jagaran mahamrityunjaya">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs uppercase font-bold tracking-wider px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Great Night of Shiva</span>
+                            <span class="text-xs text-saffron-400">Phalguna (Feb - Mar)</span>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-gold-300 mb-2">Mahashivratri</h3>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                            The auspicious night commemorating Lord Shiva's cosmic dance (Tandava) and sacred union with Goddess Parvati.
+                        </p>
+                        <div class="space-y-2 text-xs text-slate-300 mb-4 bg-velvet-900/50 p-3 rounded-xl border border-slate-800">
+                            <div><strong class="text-gold-400">Key Rituals:</strong> All-night vigil (Jagaran), Shiva Lingam Abhishekam with milk, honey, and Bilva (Bael) leaves, Om Namah Shivaya chanting.</div>
+                            <div><strong class="text-gold-400">Traditional Bhog:</strong> Thandai, Makhana Kheer, Sabudana Khichdi, Fruit offerings.</div>
+                        </div>
+                    </div>
+                    <button onclick="showFestivalDetail('Mahashivratri', 'Devotees fast through the day and stay awake all night, offering four Prahar Abhishekam to the Shiva Lingam. Sacred Bilva leaves represent the three eyes of Lord Shiva and the three Gunas (Sattva, Rajas, Tamas).')" class="w-full py-2.5 rounded-xl bg-velvet-800 hover:bg-gold-500 hover:text-velvet-900 text-gold-300 text-xs font-semibold border border-gold-400/30 transition">
+                        Explore Full Ritual Details &rarr;
+                    </button>
+                </div>
+
+                <!-- Chhath Puja & Kali Puja -->
+                <div class="fest-card glass-card glass-card-hover rounded-3xl p-6 border border-gold-400/30 flex flex-col justify-between" data-category="autumn" data-keywords="chhath puja kali puja surya dev arghya thekua nocturnal devotion">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs uppercase font-bold tracking-wider px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">Solar & Divine Energy</span>
+                            <span class="text-xs text-saffron-400">Kartik Shukla (Oct - Nov)</span>
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold text-gold-300 mb-2">Chhath Puja & Kali Puja</h3>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                            Profound expressions of devotion offering gratitude to Surya Dev (Sun Deity) & Chhathi Maiyya, alongside midnight Kali Puja.
+                        </p>
+                        <div class="space-y-2 text-xs text-slate-300 mb-4 bg-velvet-900/50 p-3 rounded-xl border border-slate-800">
+                            <div><strong class="text-gold-400">Key Rituals:</strong> 36-hour nirjala fast, sunset & sunrise river bank Arghya offerings, midnight Tantric Kali Aradhana.</div>
+                            <div><strong class="text-gold-400">Traditional Bhog:</strong> Thekua, Kheer, Sugarcane, Fresh Fruits, Red Hibiscus flower offerings.</div>
+                        </div>
+                    </div>
+                    <button onclick="showFestivalDetail('Chhath & Kali Puja', 'Chhath Puja is a unique 4-day austere festival where prayers are offered to both setting and rising sun at river banks. Simultaneously, Kali Puja is conducted at midnight on Diwali night to celebrate Mother Kali conquering ignorance.')" class="w-full py-2.5 rounded-xl bg-velvet-800 hover:bg-gold-500 hover:text-velvet-900 text-gold-300 text-xs font-semibold border border-gold-400/30 transition">
+                        Explore Full Ritual Details &rarr;
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= SHODASHAPACHARA (16 STEPS) & SACRED SAMAGRI ================= -->
+        <section id="samagri" class="max-w-7xl mx-auto px-4 py-12 w-full">
+            
+            <!-- Grid Layout: Left 16 Steps / Right Sacred Samagri -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- 16 Steps (Shodashopachara) -->
+                <div class="lg:col-span-7 glass-card rounded-3xl p-6 sm:p-8 border border-gold-400/30">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <span class="text-xs text-saffron-400 uppercase font-semibold tracking-wider">Vedic Ritual Order</span>
+                            <h2 class="font-heading text-2xl sm:text-3xl font-bold text-gold-400">The 16 Upacharas (Steps of Puja)</h2>
+                        </div>
+                        <span class="text-2xl">🕉️</span>
+                    </div>
+
+                    <!-- Step Stepper Viewer -->
+                    <div class="bg-velvet-900/70 rounded-2xl p-4 sm:p-6 border border-gold-400/20 mb-6">
+                        <div class="flex items-center justify-between text-xs text-gold-400 font-semibold mb-2">
+                            <span>STEP <span id="currentStepNum">1</span> OF 16</span>
+                            <span id="currentStepSanskrit" class="font-heading text-sm">Avahana (आवाहन)</span>
+                        </div>
+                        <h4 id="currentStepTitle" class="text-lg font-bold text-slate-100 mb-2">1. Avahana — Invocation of the Deity</h4>
+                        <p id="currentStepDesc" class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                            Inviting the divine presence into the shrine or idol with pure heart, flowers, and holy mantras.
+                        </p>
+                        
+                        <!-- Navigation Stepper Buttons -->
+                        <div class="flex items-center justify-between gap-3 pt-2 border-t border-slate-800">
+                            <button onclick="prevStep()" class="px-4 py-2 rounded-xl glass-card hover:bg-velvet-700 text-xs text-slate-300 border border-slate-700">← Previous Step</button>
+                            <div class="text-[11px] text-slate-400">Shodashopachara Vidhi</div>
+                            <button onclick="nextStep()" class="px-4 py-2 rounded-xl bg-gold-500 hover:bg-gold-400 text-velvet-900 text-xs font-bold shadow transition">Next Step →</button>
+                        </div>
+                    </div>
+
+                    <!-- Steps List Preview Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs" id="miniStepsGrid">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+
+                <!-- Sacred Samagri (Essential Puja Items) -->
+                <div class="lg:col-span-5 glass-card rounded-3xl p-6 sm:p-8 border border-gold-400/30 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-saffron-400 uppercase font-semibold tracking-wider">Sacred Inventory</span>
+                        <h2 class="font-heading text-2xl sm:text-3xl font-bold text-gold-400 mb-4">Essential Puja Samagri</h2>
+                        <p class="text-slate-300 text-xs sm:text-sm mb-6">Each sacred item used in a Puja holds deep symbolic and spiritual significance in Vedic philosophy.</p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="samagriContainer">
+                            <!-- Item Card 1 -->
+                            <div class="samagri-item glass-card p-3 rounded-2xl border border-slate-700/60 flex items-start gap-3 hover:border-gold-400/50 transition" data-keywords="kumkum vermilion tilak divine power red">
+                                <span class="text-2xl">🔴</span>
+                                <div>
+                                    <div class="text-xs font-bold text-gold-300">Kumkum & Roli</div>
+                                    <div class="text-[11px] text-slate-400">Sacred red powder representing divine feminine power (Shakti) and auspicious energy.</div>
+                                </div>
+                            </div>
+                            <!-- Item Card 2 -->
+                            <div class="samagri-item glass-card p-3 rounded-2xl border border-slate-700/60 flex items-start gap-3 hover:border-gold-400/50 transition" data-keywords="turmeric haldi purity healing yellow">
+                                <span class="text-2xl">🟡</span>
+                                <div>
+                                    <div class="text-xs font-bold text-gold-300">Haldi (Turmeric)</div>
+                                    <div class="text-[11px] text-slate-400">Symbol of purity, fertility, auspiciousness, and spiritual cleansing.</div>
+                                </div>
+                            </div>
+                            <!-- Item Card 3 -->
+                            <div class="samagri-item glass-card p-3 rounded-2xl border border-slate-700/60 flex items-start gap-3 hover:border-gold-400/50 transition" data-keywords="camphor kapur flame light aarti">
+                                <span class="text-2xl">🔥</span>
+                                <div>
+                                    <div class="text-xs font-bold text-gold-300">Kapur (Camphor)</div>
+                                    <div class="text-[11px] text-slate-400">Burns completely without residue, symbolizing the total dissolution of ego.</div>
+                                </div>
+                            </div>
+                            <!-- Item Card 4 -->
+                            <div class="samagri-item glass-card p-3 rounded-2xl border border-slate-700/60 flex items-start gap-3 hover:border-gold-400/50 transition" data-keywords="agarbatti incense fragrance smoke devas">
+                                <span class="text-2xl">💨</span>
+                                <div>
+                                    <div class="text-xs font-bold text-gold-300">Agarbatti (Incense)</div>
+                                    <div class="text-[11px] text-slate-400">Fragrant smoke purifying the atmosphere and carrying prayers upward.</div>
+                                </div>
+                            </div>
+                            <!-- Item Card 5 -->
+                            <div class="samagri-item glass-card p-3 rounded-2xl border border-slate-700/60 flex items-start gap-3 hover:border-gold-400/50 transition" data-keywords="ganga jal holy water purification snana">
+                                <span class="text-2xl">💧</span>
+                                <div>
+                                    <div class="text-xs font-bold text-gold-300">Ganga Jal</div>
+                                    <div class="text-[11px] text-slate-400">Sacred river water used for ritual purification (Abhishekam & Prokshana).</div>
+                                </div>
+                            </div>
+                            <!-- Item Card 6 -->
+                            <div class="samagri-item glass-card p-3 rounded-2xl border border-slate-700/60 flex items-start gap-3 hover:border-gold-400/50 transition" data-keywords="coconut sriphal divine head ego offering">
+                                <span class="text-2xl">🥥</span>
+                                <div>
+                                    <div class="text-xs font-bold text-gold-300">Coconut (Sriphal)</div>
+                                    <div class="text-[11px] text-slate-400">Represents the human head & ego; breaking it symbolizes self-surrender to God.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= BHOG & PRASADAM RECIPES ================= -->
+        <section id="recipes" class="max-w-7xl mx-auto px-4 py-12 w-full">
+            <div class="text-center mb-10">
+                <span class="text-xs text-saffron-400 uppercase font-semibold tracking-wider">Sacred Culinary Offerings</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-gold-400 mb-3">Festive Bhog & Prasadam Recipes</h2>
+                <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">Pure sattvic dishes prepared with love and devotion to be offered to the deities before sharing among family and devotees.</p>
+            </div>
+
+            <!-- Recipes Tab Navigation -->
+            <div class="flex justify-center flex-wrap gap-2 mb-8" id="recipeTabs">
+                <button onclick="switchRecipe('khichuri')" id="tab-khichuri" class="recipe-tab-btn px-4 py-2 rounded-full bg-gold-500 text-velvet-900 font-bold text-xs shadow-md">Durga Puja Khichuri & Labra</button>
+                <button onclick="switchRecipe('modak')" id="tab-modak" class="recipe-tab-btn px-4 py-2 rounded-full glass-card text-slate-300 font-semibold text-xs border border-slate-700 hover:text-gold-400">Ukadiche Modak</button>
+                <button onclick="switchRecipe('kheer')" id="tab-kheer" class="recipe-tab-btn px-4 py-2 rounded-full glass-card text-slate-300 font-semibold text-xs border border-slate-700 hover:text-gold-400">Paramanna / Kheer</button>
+                <button onclick="switchRecipe('ladoo')" id="tab-ladoo" class="recipe-tab-btn px-4 py-2 rounded-full glass-card text-slate-300 font-semibold text-xs border border-slate-700 hover:text-gold-400">Besan Ladoo</button>
+            </div>
+
+            <!-- Recipe Display Container -->
+            <div id="recipeDisplayCard" class="glass-card rounded-3xl p-6 sm:p-10 border border-gold-400/30">
+                <!-- Content injected dynamically via JS -->
+            </div>
+        </section>
+
+        <!-- ================= SACRED MANTRAS & CHANTS LIBRARY ================= -->
+        <section id="mantras" class="max-w-7xl mx-auto px-4 py-12 w-full">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <span class="text-xs text-saffron-400 uppercase font-semibold tracking-wider">Divine Sound Vibrations</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-gold-400 mb-2">Sacred Mantras & Stotrams</h2>
+                    <p class="text-slate-300 text-sm">Vedic vibrations that calm the mind and awaken spiritual elevation.</p>
+                </div>
+                <!-- Search Mantras -->
+                <input type="text" id="mantraSearchInput" oninput="filterMantras(this.value)" placeholder="Filter mantras (e.g., Gayatri, Durga)..." class="glass-card px-4 py-2 rounded-xl text-xs text-slate-100 placeholder-slate-400 border border-gold-400/30 focus:outline-none w-full md:w-64">
+            </div>
+
+            <!-- Mantras Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="mantrasGrid">
+                
+                <!-- Mantra 1: Gayatri Mantra -->
+                <div class="mantra-card glass-card glass-card-hover rounded-3xl p-6 border border-gold-400/30 flex flex-col justify-between" data-keywords="gayatri mantra savitur varenyam vedic universal illumination sun light">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold text-saffron-400 uppercase tracking-wider">Universal Illumination</span>
+                            <span class="text-xs text-slate-400">Rigveda</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-gold-300 mb-3">Gayatri Mantra</h3>
+                        
+                        <!-- Sanskrit Text -->
+                        <div class="font-heading text-base sm:text-lg text-gold-400 font-semibold mb-3 bg-velvet-900/60 p-3 rounded-xl border border-gold-400/20 leading-relaxed">
+                            ॐ भूर्भुवः स्वः । तत्सवितुर्वरेण्यं । <br/>
+                            भर्गो देवस्य धीमहि । धियो यो नः प्रचोदयात् ॥
+                        </div>
+
+                        <div class="text-xs italic text-saffron-400 mb-2">
+                            Om Bhur Bhuvaḥ Swaḥ | Tat Savitur Vareṇyaṃ | Bhargo Devasya Dhīmahi | Dhiyo Yo Naḥ Pracodayāt ||
+                        </div>
+
+                        <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                            <strong>Meaning:</strong> We meditate on the radiant glory of the divine Creator (Savitur), who illuminated the three worlds. May That Supreme Light inspire and enlighten our intellect.
+                        </p>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-3 pt-3 border-t border-slate-800">
+                        <button onclick="playMantraTone(528)" class="px-3.5 py-2 rounded-xl bg-velvet-800 hover:bg-gold-500 hover:text-velvet-900 text-gold-300 text-xs font-semibold border border-gold-400/30 transition flex items-center gap-1.5">
+                            <span>🔊</span> Sound Chime (528Hz)
+                        </button>
+                        <button onclick="copyMantra('Om Bhur Bhuvaḥ Swaḥ | Tat Savitur Vareṇyaṃ | Bhargo Devasya Dhīmahi | Dhiyo Yo Naḥ Pracodayāt ||')" class="px-3 py-2 rounded-xl glass-card hover:bg-velvet-700 text-slate-300 text-xs border border-slate-700 transition">
+                            📋 Copy Text
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mantra 2: Ganesh Vakratunda Stotram -->
+                <div class="mantra-card glass-card glass-card-hover rounded-3xl p-6 border border-gold-400/30 flex flex-col justify-between" data-keywords="ganesh vakratunda mahakaya suryakoti samaprabha remove obstacles beginnings">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold text-gold-400 uppercase tracking-wider">Removal of Obstacles</span>
+                            <span class="text-xs text-slate-400">Ganesha Stuti</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-gold-300 mb-3">Ganesh Vakratunda Sloka</h3>
+                        
+                        <!-- Sanskrit Text -->
+                        <div class="font-heading text-base sm:text-lg text-gold-400 font-semibold mb-3 bg-velvet-900/60 p-3 rounded-xl border border-gold-400/20 leading-relaxed">
+                            वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ । <br/>
+                            निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
+                        </div>
+
+                        <div class="text-xs italic text-saffron-400 mb-2">
+                            Vakratunda Mahākāya Sūryakoṭi Samaprabha | Nirvighnaṃ Kuru Me Deva Sarvakāryeṣu Sarvadā ||
+                        </div>
+
+                        <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                            <strong>Meaning:</strong> O Lord with the curved trunk and immense form, possessing the radiance of ten million suns! Please clear all obstacles from all my endeavors, always.
+                        </p>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-3 pt-3 border-t border-slate-800">
+                        <button onclick="playMantraTone(432)" class="px-3.5 py-2 rounded-xl bg-velvet-800 hover:bg-gold-500 hover:text-velvet-900 text-gold-300 text-xs font-semibold border border-gold-400/30 transition flex items-center gap-1.5">
+                            <span>🔊</span> Sound Chime (432Hz)
+                        </button>
+                        <button onclick="copyMantra('Vakratunda Mahākāya Sūryakoṭi Samaprabha | Nirvighnaṃ Kuru Me Deva Sarvakāryeṣu Sarvadā ||')" class="px-3 py-2 rounded-xl glass-card hover:bg-velvet-700 text-slate-300 text-xs border border-slate-700 transition">
+                            📋 Copy Text
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mantra 3: Durga Mangala Stuti -->
+                <div class="mantra-card glass-card glass-card-hover rounded-3xl p-6 border border-gold-400/30 flex flex-col justify-between" data-keywords="durga sarva mangala mangalye shive sarvartha sadhike sharanye tryambake gauri shakti auspiciousness">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold text-crimson-500 uppercase tracking-wider">Auspicious Divine Feminine</span>
+                            <span class="text-xs text-slate-400">Devi Mahatmyam</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-gold-300 mb-3">Durga Mangala Stuti</h3>
+                        
+                        <!-- Sanskrit Text -->
+                        <div class="font-heading text-base sm:text-lg text-gold-400 font-semibold mb-3 bg-velvet-900/60 p-3 rounded-xl border border-gold-400/20 leading-relaxed">
+                            सर्वमङ्गलमाङ्गल्ये शिबे सर्वार्थसाधिके । <br/>
+                            शरण्ये त्र्यम्बके गौरि नारायणि नमोऽस्तु ते ॥
+                        </div>
+
+                        <div class="text-xs italic text-saffron-400 mb-2">
+                            Sarva Maṅgala Māṅgalye Śive Sarvārtha Sādhike | Śaraṇye Tryambake Gauri Nārāyaṇi Namo'stu Te ||
+                        </div>
+
+                        <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                            <strong>Meaning:</strong> Salutations to Goddess Narayani, the auspiciousness of all that is auspicious, the fulfiller of every desire, the three-eyed refuge of all devotees.
+                        </p>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-3 pt-3 border-t border-slate-800">
+                        <button onclick="playMantraTone(639)" class="px-3.5 py-2 rounded-xl bg-velvet-800 hover:bg-gold-500 hover:text-velvet-900 text-gold-300 text-xs font-semibold border border-gold-400/30 transition flex items-center gap-1.5">
+                            <span>🔊</span> Sound Chime (639Hz)
+                        </button>
+                        <button onclick="copyMantra('Sarva Maṅgala Māṅgalye Śive Sarvārtha Sādhike | Śaraṇye Tryambake Gauri Nārāyaṇi Namo\'stu Te ||')" class="px-3 py-2 rounded-xl glass-card hover:bg-velvet-700 text-slate-300 text-xs border border-slate-700 transition">
+                            📋 Copy Text
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mantra 4: Mahamrityunjaya Mantra -->
+                <div class="mantra-card glass-card glass-card-hover rounded-3xl p-6 border border-gold-400/30 flex flex-col justify-between" data-keywords="mahamrityunjaya mantra om tryambakam yajamahe sugandhim pushtivardhanam shiva healing immortality health">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Health & Spiritual Liberation</span>
+                            <span class="text-xs text-slate-400">Yajurveda</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-gold-300 mb-3">Mahamrityunjaya Mantra</h3>
+                        
+                        <!-- Sanskrit Text -->
+                        <div class="font-heading text-base sm:text-lg text-gold-400 font-semibold mb-3 bg-velvet-900/60 p-3 rounded-xl border border-gold-400/20 leading-relaxed">
+                            ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम् । <br/>
+                            उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय माऽमृतात् ॥
+                        </div>
+
+                        <div class="text-xs italic text-saffron-400 mb-2">
+                            Om Tryambakaṃ Yajāmahe Sugandhiṃ Puṣṭivardhanam | Urvārukamiva Bandhanān Mṛtyor Mukṣīya Mā'mṛtāt ||
+                        </div>
+
+                        <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                            <strong>Meaning:</strong> We worship the Three-Eyed Lord Shiva who is fragrant and nourishes all beings. As a cucumber is liberated from its vine, may He liberate us from death and bind us to immortality.
+                        </p>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-3 pt-3 border-t border-slate-800">
+                        <button onclick="playMantraTone(741)" class="px-3.5 py-2 rounded-xl bg-velvet-800 hover:bg-gold-500 hover:text-velvet-900 text-gold-300 text-xs font-semibold border border-gold-400/30 transition flex items-center gap-1.5">
+                            <span>🔊</span> Sound Chime (741Hz)
+                        </button>
+                        <button onclick="copyMantra('Om Tryambakaṃ Yajāmahe Sugandhiṃ Puṣṭivardhanam | Urvārukamiva Bandhanān Mṛtyor Mukṣīya Mā\'mṛtāt ||')" class="px-3 py-2 rounded-xl glass-card hover:bg-velvet-700 text-slate-300 text-xs border border-slate-700 transition">
+                            📋 Copy Text
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= FOOTER ================= -->
+        <footer class="mt-auto border-t border-gold-400/20 glass-card py-10 px-4">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <!-- Brand Info -->
+                <div class="text-center md:text-left">
+                    <div class="font-heading font-bold text-xl gold-gradient-text">PŪJĀ</div>
+                    <p class="text-xs text-slate-400 mt-1 max-w-sm">Celebrating Vedic culture, sacred rituals, ancient mantras, and divine festivals with reverence and modern elegance.</p>
+                </div>
+
+                <!-- Footer Nav -->
+                <div class="flex flex-wrap justify-center gap-6 text-xs text-slate-300">
+                    <a href="#hero" class="hover:text-gold-400">Home</a>
+                    <a href="#chamber" class="hover:text-gold-400">Virtual Altar</a>
+                    <a href="#festivals" class="hover:text-gold-400">Festivals</a>
+                    <a href="#samagri" class="hover:text-gold-400">Steps & Samagri</a>
+                    <a href="#recipes" class="hover:text-gold-400">Bhog Recipes</a>
+                </div>
+
+                <!-- GitHub Pages Deployment Guide Trigger -->
+                <button onclick="openModal('githubModal')" class="px-4 py-2 rounded-full glass-card hover:bg-velvet-700 text-gold-400 text-xs border border-gold-400/30 transition">
+                    📖 GitHub Pages Setup Guide
+                </button>
+            </div>
+            
+            <div class="max-w-7xl mx-auto border-t border-slate-800/60 mt-8 pt-6 text-center text-[11px] text-slate-500">
+                Crafted with sacred reverence • Optimized for GitHub Pages & Open Source Deployment • 🕉️ Om Shanti Shanti Shanti
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- ================= MODALS & DRAWERS ================= -->
+
+    <!-- General Detail Modal -->
+    <div id="detailModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/75 backdrop-blur-md">
+        <div class="glass-card rounded-3xl p-6 sm:p-8 max-w-lg w-full border border-gold-400/40 relative shadow-2xl animate-fade-in">
+            <button onclick="closeModal('detailModal')" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-velvet-800 text-slate-300 hover:text-gold-400 flex items-center justify-center border border-slate-700">✕</button>
+            <h3 id="modalTitle" class="font-heading text-2xl font-bold text-gold-400 mb-3">Detail Title</h3>
+            <div id="modalBody" class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3">
+                <!-- Content injected dynamically -->
+            </div>
+            <div class="mt-6 text-right">
+                <button onclick="closeModal('detailModal')" class="px-5 py-2 rounded-xl bg-gold-500 hover:bg-gold-400 text-velvet-900 font-bold text-xs shadow">Close Window</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GitHub Pages Deployment Guide Modal -->
+    <div id="githubModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="glass-card rounded-3xl p-6 sm:p-8 max-w-2xl w-full border border-gold-400/40 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('githubModal')" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-velvet-800 text-slate-300 hover:text-gold-400 flex items-center justify-center border border-slate-700">✕</button>
+            
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-3xl">🚀</span>
+                <div>
+                    <h3 class="font-heading text-xl font-bold text-gold-400">Deploying to GitHub Pages</h3>
+                    <div class="text-xs text-saffron-400">Step-by-step guide to hosting this single-file site</div>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <div class="bg-velvet-900/80 p-4 rounded-2xl border border-gold-400/20">
+                    <strong class="text-gold-300 block mb-1">Step 1: Create GitHub Repository</strong>
+                    Log into GitHub, click <em>New Repository</em>, name it (e.g. <code>puja-traditions</code>), and make it Public.
+                </div>
+
+                <div class="bg-velvet-900/80 p-4 rounded-2xl border border-gold-400/20">
+                    <strong class="text-gold-300 block mb-1">Step 2: Save as index.html</strong>
+                    Save this entire generated code inside a single file named <code>index.html</code> in the root directory of your repository.
+                </div>
+
+                <div class="bg-velvet-900/80 p-4 rounded-2xl border border-gold-400/20">
+                    <strong class="text-gold-300 block mb-1">Step 3: Enable Pages in Settings</strong>
+                    Go to your repository <strong>Settings</strong> &rarr; <strong>Pages</strong> (on left navigation menu). Under <em>Build and deployment</em>:
+                    <ul class="list-disc list-inside mt-1 space-y-1 text-slate-400">
+                        <li>Source: <strong>Deploy from a branch</strong></li>
+                        <li>Branch: <strong>main</strong> / <strong>root (/)</strong></li>
+                        <li>Click <strong>Save</strong></li>
+                    </ul>
+                </div>
+
+                <div class="bg-velvet-900/80 p-4 rounded-2xl border border-gold-400/20">
+                    <strong class="text-gold-300 block mb-1">Step 4: Live Website URL</strong>
+                    Within 1-2 minutes, your website will be live at: <br/>
+                    <code class="text-gold-400 font-mono text-xs bg-black/40 px-2 py-1 rounded inline-block mt-1">https://yourusername.github.io/puja-traditions/</code>
+                </div>
+            </div>
+
+            <div class="mt-6 text-right">
+                <button onclick="closeModal('githubModal')" class="px-5 py-2 rounded-xl bg-gold-500 hover:bg-gold-400 text-velvet-900 font-bold text-xs shadow">Got It!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden glass-card px-4 py-3 rounded-2xl border border-gold-400/50 text-gold-300 text-xs font-semibold shadow-2xl flex items-center gap-2">
+        <span id="toastIcon">✨</span>
+        <span id="toastMessage">Notification Message</span>
+    </div>
+
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
+    <script>
+        /* -------------------------------------------------------------
+           1. CANVAS BACKGROUND ANIMATION (Diyas, Petals, Golden Dust)
+        ------------------------------------------------------------- */
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        // Particle Generators
+        class Petal {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * width;
+                this.y = -20;
+                this.size = Math.random() * 8 + 6;
+                this.speedY = Math.random() * 1.2 + 0.6;
+                this.speedX = Math.random() * 0.8 - 0.4;
+                this.rotation = Math.random() * 360;
+                this.rotSpeed = Math.random() * 2 - 1;
+                this.opacity = Math.random() * 0.7 + 0.3;
+                this.color = Math.random() > 0.5 ? '#ff9933' : '#ffd700'; // Marigold Orange / Gold
+            }
+            update() {
+                this.y += this.speedY;
+                this.x += Math.sin(this.y * 0.01) + this.speedX;
+                this.rotation += this.rotSpeed;
+                if (this.y > height + 20) this.reset();
+            }
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate((this.rotation * Math.PI) / 180);
+                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.ellipse(0, 0, this.size, this.size / 2, 0, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        class DustParticle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 2 + 1;
+                this.speedY = -(Math.random() * 0.5 + 0.2);
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            update() {
+                this.y += this.speedY;
+                if (this.y < 0) this.y = height;
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = '#ffd700';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        const petals = Array.from({ length: 30 }, () => new Petal());
+        const dust = Array.from({ length: 45 }, () => new DustParticle());
+
+        function animateBg() {
+            ctx.clearRect(0, 0, width, height);
+            dust.forEach(d => { d.update(); d.draw(); });
+            petals.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animateBg);
+        }
+        animateBg();
+
+        /* -------------------------------------------------------------
+           2. WEB AUDIO API SYNTHESIZER (Temple Bell & Mantra Tones)
+        ------------------------------------------------------------- */
+        let audioCtx = null;
+        let ambientOsc = null;
+        let isAmbientPlaying = false;
+
+        function getAudioContext() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContext();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        // Temple Bell Chime Synthesizer
+        function ringTempleBell() {
+            try {
+                const ctx = getAudioContext();
+                const now = ctx.currentTime;
+
+                // Bell oscillation harmonics
+                const freqs = [587.33, 880, 1174.66, 1760]; // D5 note harmonics
+                freqs.forEach((freq, idx) => {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+
+                    osc.type = idx === 0 ? 'sine' : 'triangle';
+                    osc.frequency.setValueAtTime(freq, now);
+
+                    // Exponential decay like real bronze bell resonance
+                    gain.gain.setValueAtTime(0.3 / (idx + 1), now);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, now + 3.5 - idx * 0.5);
+
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+
+                    osc.start(now);
+                    osc.stop(now + 3.5);
+                });
+
+                // Trigger visual animation on bell
+                const bell = document.getElementById('hangingBell');
+                bell.classList.remove('animate-bell');
+                void bell.offsetWidth; // trigger reflow
+                bell.classList.add('animate-bell');
+
+                incrementRitualCount();
+                showToast('🔔 Temple Bell Rung!', '✨');
+            } catch (e) {
+                console.log('Audio playback initialized');
+            }
+        }
+
+        // Soothing Mantra Tone Generator
+        function playMantraTone(freq = 432) {
+            try {
+                const ctx = getAudioContext();
+                const now = ctx.currentTime;
+
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, now);
+
+                gain.gain.setValueAtTime(0.01, now);
+                gain.gain.linearRampToValueAtTime(0.25, now + 0.3);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + 2.8);
+
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+
+                osc.start(now);
+                osc.stop(now + 2.8);
+
+                showToast(`🔊 Sacred Frequency Tone (${freq} Hz) Playing...`, '🕉️');
+            } catch (e) {
+                console.log(e);
+            }
+        }
+
+        // Ambient Temple Bell Synth Loop
+        function toggleAmbientTone() {
+            const label = document.getElementById('soundLabel');
+            const icon = document.getElementById('soundIcon');
+            
+            if (!isAmbientPlaying) {
+                ringTempleBell();
+                isAmbientPlaying = true;
+                label.textContent = 'Ambient Active';
+                icon.textContent = '🎶';
+                showToast('Temple Ambient Synth Active', '🔔');
+            } else {
+                isAmbientPlaying = false;
+                label.textContent = 'Temple Ambient';
+                icon.textContent = '🔔';
+                showToast('Ambient Synth Muted', '🔇');
+            }
+        }
+
+        /* -------------------------------------------------------------
+           3. VIRTUAL PUJA CHAMBER INTERACTIVE STATE
+        ------------------------------------------------------------- */
+        let isDiyaLit = false;
+        let ritualCount = 0;
+
+        function toggleDiya() {
+            isDiyaLit = !isDiyaLit;
+            const leftFlame = document.getElementById('leftDiyaFlame');
+            const rightFlame = document.getElementById('rightDiyaFlame');
+            const btnLabel = document.getElementById('diyaBtnLabel');
+            const statusText = document.getElementById('altarStatusText');
+
+            if (isDiyaLit) {
+                leftFlame.classList.add('flame-active', 'opacity-100');
+                rightFlame.classList.add('flame-active', 'opacity-100');
+                leftFlame.classList.remove('opacity-30');
+                rightFlame.classList.remove('opacity-30');
+                btnLabel.textContent = 'Extinguish Diya';
+                statusText.textContent = '🪔 The Sacred Flames are lit! May light illuminate your path.';
+                showToast('Sacred Diyas Illuminated!', '🪔');
+                incrementRitualCount();
+            } else {
+                leftFlame.classList.remove('flame-active', 'opacity-100');
+                rightFlame.classList.remove('flame-active', 'opacity-100');
+                leftFlame.classList.add('opacity-30');
+                rightFlame.classList.add('opacity-30');
+                btnLabel.textContent = 'Light Diyas';
+                statusText.textContent = 'Perform your virtual rituals below to illuminate the shrine.';
+            }
+        }
+
+        function offerFlowers() {
+            // Burst petals into canvas array
+            for (let i = 0; i < 15; i++) {
+                petals.push(new Petal());
+            }
+            document.getElementById('altarStatusText').textContent = '🌸 Marigold petals offered to the deity with pure devotion.';
+            showToast('Marigold Petals Offered!', '🌸');
+            incrementRitualCount();
+        }
+
+        function offerBhog() {
+            const overlay = document.getElementById('prasadamOverlay');
+            overlay.classList.remove('hidden');
+            document.getElementById('altarStatusText').textContent = '🥣 Pure Sattvic Bhog offered to the divine.';
+            showToast('Prasadam Offered on Altar!', '🍯');
+            incrementRitualCount();
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+            }, 4000);
+        }
+
+        function incrementRitualCount() {
+            ritualCount++;
+            document.getElementById('ritualCount').textContent = ritualCount;
+        }
+
+        /* -------------------------------------------------------------
+           4. 16 STEPS OF PUJA (SHODASHAPACHARA) STEPPER LOGIC
+        ------------------------------------------------------------- */
+        const shodashaSteps = [
+            { num: 1, sanskrit: "Avahana (आवाहन)", title: "1. Avahana — Invocation", desc: "Inviting the divine supreme presence into the consecrated shrine or idol with sincere devotion, flowers, and holy mantras." },
+            { num: 2, sanskrit: "Asana (आसन)", title: "2. Asana — Offering Seat", desc: "Offering a clean, decorated, and revered seat (Asana) to the deity." },
+            { num: 3, sanskrit: "Padya (पाद्य)", title: "3. Padya — Washing Feet", desc: "Offering pure, scented water to symbolically wash the holy feet of the divine guest." },
+            { num: 4, sanskrit: "Arghya (अर्घ्य)", title: "4. Arghya — Holy Water Offering", desc: "Offering sanctified water mixed with flowers, rice, and sandalwood for washing hands." },
+            { num: 5, sanskrit: "Achamanya (आचमनीय)", title: "5. Achamanya — Water for Sipping", desc: "Offering holy water for inner purification and sipping." },
+            { num: 6, sanskrit: "Snana (स्नान)", title: "6. Snana — Sacred Bath", desc: "Bathing the deity with Panchamrit (milk, curd, honey, ghee, sugar) followed by pure water." },
+            { num: 7, sanskrit: "Vastra (वस्त्र)", title: "7. Vastra — Sacred Attire", desc: "Draping the deity with fresh, clean silk or cotton holy garments." },
+            { num: 8, sanskrit: "Yajnopavita (यज्ञोपवीत)", title: "8. Yajnopavita — Sacred Thread", desc: "Offering the sacred holy thread (Janeu) to the deity." },
+            { num: 9, sanskrit: "Chandan (चन्दन)", title: "9. Chandan — Sandalwood Paste", desc: "Applying fragrant sandalwood paste and Kumkum tilak to the forehead." },
+            { num: 10, sanskrit: "Pushpa (पुष्प)", title: "10. Pushpa — Fresh Flowers", desc: "Offering fragrant fresh flowers, marigold garlands, and sacred leaves (Tulsi/Bilva/Durva)." },
+            { num: 11, sanskrit: "Dhupa (धूप)", title: "11. Dhupa — Incense Smoke", desc: "Waving fragrant incense (Agarbatti/Guggul) to purify the surroundings." },
+            { num: 12, sanskrit: "Deepa (दीप)", title: "12. Deepa — Illuminating Flame", desc: "Offering the glowing light of a ghee diya to remove spiritual darkness." },
+            { num: 13, sanskrit: "Naivedya (नैवेद्य)", title: "13. Naivedya — Sacred Food", desc: "Offering pure Sattvic food, fruits, sweets, and panchamrit as Bhog." },
+            { num: 14, sanskrit: "Tambula (ताम्बूल)", title: "14. Tambula — Betel Leaf", desc: "Offering betel leaves, betel nuts, and spices after the meal." },
+            { num: 15, sanskrit: "Aarti & Pradakshina (आरती)", title: "15. Aarti & Pradakshina — Sacred Flame Reverence", desc: "Circulating the glowing camphor flame with bells and chanting, followed by circumambulation." },
+            { num: 16, sanskrit: "Mantra Pushpanjali (पुष्पांजलि)", title: "16. Mantra Pushpanjali & Visarjan", desc: "Final offering of flowers with mantras seeking forgiveness for any unintended errors, followed by heartfelt surrender." }
+        ];
+
+        let currentStepIdx = 0;
+
+        function updateStepUI() {
+            const step = shodashaSteps[currentStepIdx];
+            document.getElementById('currentStepNum').textContent = step.num;
+            document.getElementById('currentStepSanskrit').textContent = step.sanskrit;
+            document.getElementById('currentStepTitle').textContent = step.title;
+            document.getElementById('currentStepDesc').textContent = step.desc;
+
+            // Highlight mini grid
+            const miniGrid = document.getElementById('miniStepsGrid');
+            miniGrid.innerHTML = shodashaSteps.map((s, idx) => `
+                <div onclick="jumpToStep(${idx})" class="cursor-pointer p-2 rounded-xl text-center border transition ${idx === currentStepIdx ? 'bg-gold-500 text-velvet-900 border-gold-400 font-bold' : 'glass-card text-slate-400 border-slate-800 hover:border-gold-400/40'}">
+                    Step ${s.num}
+                </div>
+            `).join('');
+        }
+
+        function nextStep() {
+            currentStepIdx = (currentStepIdx + 1) % shodashaSteps.length;
+            updateStepUI();
+        }
+
+        function prevStep() {
+            currentStepIdx = (currentStepIdx - 1 + shodashaSteps.length) % shodashaSteps.length;
+            updateStepUI();
+        }
+
+        function jumpToStep(idx) {
+            currentStepIdx = idx;
+            updateStepUI();
+        }
+
+        // Initialize Step Stepper
+        updateStepUI();
+
+        /* -------------------------------------------------------------
+           5. BHOG & PRASADAM RECIPES TAB DATA & LOGIC
+        ------------------------------------------------------------- */
+        const recipesData = {
+            khichuri: {
+                title: "Durga Puja Bhog Khichuri & Labra",
+                subtitle: "The quintessential divine offering during Sharadotsav",
+                time: "Prep: 20 mins | Cooking: 35 mins",
+                ingredients: [
+                    "1 cup Roasted Govindobhog or Basmati Rice",
+                    "1 cup Roasted Sona Moong Dal",
+                    "2 tbsp Pure Desi Ghee",
+                    "Whole Spices: Bay leaf, Cumin seeds, Dry red chilies, Cardamom, Cloves",
+                    "Grated Ginger & Green Chilies",
+                    "Vegetables for Labra: Pumpkin, Eggplant, Potato, Ridge gourd, Radish",
+                    "Turmeric, Red chili powder, Bhaja Masala (Roasted cumin-coriander powder)"
+                ],
+                steps: [
+                    "Dry roast the Sona Moong dal until fragrant golden, then wash along with rice.",
+                    "In a heavy-bottomed handi, heat ghee and temper with cumin, bay leaf, cardamom, and dry chilies.",
+                    "Add ginger paste, turmeric, and water. Bring to a gentle boil.",
+                    "Add washed rice and dal. Cook on low flame until tender and creamy.",
+                    "Prepare Labra vegetable mix separately by slow-cooking spiced mixed vegetables in ghee and bhaja masala.",
+                    "Serve piping hot Khichuri topped with a generous dollop of ghee alongside Labra."
+                ]
+            },
+            modak: {
+                title: "Ukadiche Modak (Steamed Sweet Dumplings)",
+                subtitle: "Lord Ganesha's most beloved sacred sweet offering",
+                time: "Prep: 30 mins | Cooking: 20 mins",
+                ingredients: [
+                    "1 cup Fine Rice Flour (Chawal ka Aata)",
+                    "1 cup Freshly Grated Coconut",
+                    "3/4 cup Jaggery (Gud)",
+                    "1/2 tsp Cardamom Powder & Nutmeg pinch",
+                    "1 tbsp Ghee & Saffron strands soaked in milk"
+                ],
+                steps: [
+                    "Cook grated coconut and jaggery in a pan until jaggery melts and thickens. Stir in cardamom powder.",
+                    "Boil 1 cup water with a pinch of salt and 1 tsp ghee. Stir in rice flour, cover, and steam off heat for 10 mins.",
+                    "Knead the warm dough smoothly using oiled palms.",
+                    "Pinch small dough balls, flatten into cups, fill with sweet coconut jaggery mixture, and pleat into flower shapes.",
+                    "Steam modaks on a banana leaf for 12-15 minutes. Drizzle with saffron ghee before offering."
+                ]
+            },
+            kheer: {
+                title: "Paramanna / Divine Rice Kheer",
+                subtitle: "Auspicious sweet milk offering for Goddess Lakshmi & Saraswati",
+                time: "Prep: 15 mins | Cooking: 40 mins",
+                ingredients: [
+                    "1 liter Full Cream Milk",
+                    "1/4 cup Govindobhog or Fragrant Rice",
+                    "1/2 cup Condensed Milk or Jaggery / Sugar",
+                    "Cashews, Raisins, Pistachios",
+                    "Saffron strands & Smashed Cardamom pods"
+                ],
+                steps: [
+                    "Simmer full cream milk in a heavy pot until reduced by 25%.",
+                    "Add washed rice and cook on medium-low flame, stirring frequently so milk does not stick.",
+                    "Once rice is completely tender, add sweetener (jaggery/sugar), cardamom powder, and saffron.",
+                    "Fry cashews and raisins in ghee and fold into the creamy kheer.",
+                    "Offer chilled or warm with holy tulsi leaves."
+                ]
+            },
+            ladoo: {
+                title: "Desi Ghee Besan Ladoo",
+                subtitle: "Golden roasted gram flour spheres for Diwali celebrations",
+                time: "Prep: 10 mins | Cooking: 25 mins",
+                ingredients: [
+                    "2 cups Coarse Gram Flour (Besan)",
+                    "1/2 cup Pure Desi Ghee",
+                    "1 cup Powdered Sugar / Boora",
+                    "1/2 tsp Cardamom powder & chopped almonds"
+                ],
+                steps: [
+                    "Melt ghee in a broad pan and add besan.",
+                    "Roast on low heat continuously for 20-25 mins until color turns golden brown and aroma fills the kitchen.",
+                    "Sprinkle a few drops of water at the end to create a grainy texture.",
+                    "Let mixture cool to room temperature, then mix in powdered sugar and cardamom.",
+                    "Shape into firm round spheres and garnish with almonds."
+                ]
+            }
+        };
+
+        function switchRecipe(key) {
+            // Update active tab buttons
+            document.querySelectorAll('.recipe-tab-btn').forEach(btn => {
+                btn.className = 'recipe-tab-btn px-4 py-2 rounded-full glass-card text-slate-300 font-semibold text-xs border border-slate-700 hover:text-gold-400';
+            });
+            const activeBtn = document.getElementById(`tab-${key}`);
+            if (activeBtn) {
+                activeBtn.className = 'recipe-tab-btn px-4 py-2 rounded-full bg-gold-500 text-velvet-900 font-bold text-xs shadow-md';
+            }
+
+            const r = recipesData[key];
+            const display = document.getElementById('recipeDisplayCard');
+
+            display.innerHTML = `
+                <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-gold-400/20 pb-4 mb-6 gap-2">
+                    <div>
+                        <span class="text-xs text-saffron-400 font-semibold uppercase">${r.time}</span>
+                        <h3 class="font-heading text-2xl sm:text-3xl font-bold text-gold-300">${r.title}</h3>
+                        <p class="text-xs text-slate-400">${r.subtitle}</p>
+                    </div>
+                    <button onclick="showToast('Recipe Saved to Favorites!', '📖')" class="px-3.5 py-2 rounded-xl glass-card text-gold-400 border border-gold-400/30 text-xs hover:bg-velvet-700 self-start md:self-auto">
+                        📌 Save Recipe
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                    <!-- Ingredients -->
+                    <div class="md:col-span-5 bg-velvet-900/60 p-4 sm:p-6 rounded-2xl border border-gold-400/20">
+                        <h4 class="font-heading text-base font-bold text-gold-400 mb-3 flex items-center gap-2">
+                            <span>🛒</span> Ingredients
+                        </h4>
+                        <ul class="space-y-2 text-xs text-slate-300">
+                            ${r.ingredients.map(i => `<li class="flex items-start gap-2"><span>•</span><span>${i}</span></li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <!-- Preparation Steps -->
+                    <div class="md:col-span-7">
+                        <h4 class="font-heading text-base font-bold text-gold-400 mb-3 flex items-center gap-2">
+                            <span>🍳</span> Sacred Culinary Instructions
+                        </h4>
+                        <ol class="space-y-3 text-xs sm:text-sm text-slate-300">
+                            ${r.steps.map((step, idx) => `
+                                <li class="flex items-start gap-3 bg-velvet-900/40 p-3 rounded-xl border border-slate-800">
+                                    <span class="font-bold text-gold-400 text-xs bg-velvet-800 px-2 py-1 rounded-lg">${idx + 1}</span>
+                                    <span class="leading-relaxed text-xs">${step}</span>
+                                </li>
+                            `).join('')}
+                        </ol>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize default recipe
+        switchRecipe('khichuri');
+
+        /* -------------------------------------------------------------
+           6. SEARCH & FILTERING FUNCTIONS
+        ------------------------------------------------------------- */
+        function filterFestivals(category) {
+            // Button styles
+            const btns = document.querySelectorAll('.fest-filter-btn');
+            btns.forEach(b => {
+                b.className = 'fest-filter-btn px-4 py-2 rounded-full glass-card text-slate-300 border border-slate-700 hover:text-gold-400';
+            });
+            event.target.className = 'fest-filter-btn px-4 py-2 rounded-full bg-gold-500 text-velvet-900 border border-gold-400 shadow-md font-bold';
+
+            // Filter cards
+            const cards = document.querySelectorAll('.fest-card');
+            cards.forEach(c => {
+                if (category === 'all' || c.getAttribute('data-category') === category) {
+                    c.classList.remove('hidden');
+                } else {
+                    c.classList.add('hidden');
+                }
+            });
+        }
+
+        function filterMantras(query) {
+            const q = query.toLowerCase().trim();
+            const cards = document.querySelectorAll('.mantra-card');
+            cards.forEach(c => {
+                const keywords = c.getAttribute('data-keywords').toLowerCase();
+                const text = c.textContent.toLowerCase();
+                if (!q || keywords.includes(q) || text.includes(q)) {
+                    c.classList.remove('hidden');
+                } else {
+                    c.classList.add('hidden');
+                }
+            });
+        }
+
+        function handleGlobalSearch(query) {
+            const q = query.toLowerCase().trim();
+            const clearBtn = document.getElementById('clearSearchBtn');
+            const resultsCount = document.getElementById('searchResultsCount');
+
+            if (q.length > 0) {
+                clearBtn.classList.remove('hidden');
+                resultsCount.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+                resultsCount.classList.add('hidden');
+            }
+
+            // Filter festival cards
+            let matches = 0;
+            document.querySelectorAll('.fest-card').forEach(c => {
+                const kw = (c.getAttribute('data-keywords') || '').toLowerCase();
+                const txt = c.textContent.toLowerCase();
+                if (!q || kw.includes(q) || txt.includes(q)) {
+                    c.classList.remove('hidden');
+                    matches++;
+                } else {
+                    c.classList.add('hidden');
+                }
+            });
+
+            // Filter mantras
+            filterMantras(q);
+
+            // Filter samagri
+            document.querySelectorAll('.samagri-item').forEach(s => {
+                const kw = (s.getAttribute('data-keywords') || '').toLowerCase();
+                if (!q || kw.includes(q)) {
+                    s.classList.remove('hidden');
+                } else {
+                    s.classList.add('hidden');
+                }
+            });
+
+            resultsCount.textContent = `Showing live search results for "${query}" across festivals, mantras & items...`;
+        }
+
+        function clearSearch() {
+            document.getElementById('globalSearchInput').value = '';
+            handleGlobalSearch('');
+        }
+
+        /* -------------------------------------------------------------
+           7. UTILITIES: MODALS, TOASTS & CLIPBOARD
+        ------------------------------------------------------------- */
+        function showFestivalDetail(title, description) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalBody').innerHTML = `
+                <p class="leading-relaxed">${description}</p>
+                <div class="mt-4 p-3 bg-velvet-900/80 rounded-xl border border-gold-400/20 text-xs text-saffron-300">
+                    💡 <strong>Spiritual Insight:</strong> Performing puja with devotion (Bhakti), pure intention (Bhava), and righteous action brings mental stillness and divine grace.
+                </div>
+            `;
+            openModal('detailModal');
+        }
+
+        function copyMantra(text) {
+            // Fallback clipboard logic
+            const temp = document.createElement('textarea');
+            temp.value = text;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+            showToast('Mantra copied to clipboard!', '📋');
+        }
+
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        function showToast(message, icon = '✨') {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').textContent = message;
+            document.getElementById('toastIcon').textContent = icon;
+            toast.classList.remove('hidden');
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+    </script>
+</body>
 </html>
