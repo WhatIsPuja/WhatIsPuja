@@ -133,19 +133,49 @@
       margin-bottom: 0;
     }
 
-    /* Grid for Aiden's Puja Items */
+    /* Grid & Cards for Puja Items */
     .items-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
       margin-top: 1.5rem;
     }
 
     .item-card {
       background-color: var(--bg-page);
       border: 1px solid var(--border-light);
-      border-left: 4px solid var(--accent);
+      border-top: 4px solid var(--accent);
       border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Styles any photo you add inside a card */
+    .item-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Placeholder box shown until you add your own photo */
+    .photo-placeholder {
+      width: 100%;
+      height: 160px;
+      background-color: #fef3c7;
+      border-bottom: 2px dashed var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-dark);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .item-card-content {
       padding: 1.25rem;
     }
 
@@ -224,68 +254,31 @@
       </p>
 
       <div class="items-grid">
+        
+        <!-- CARD 1: ARTI LAMP -->
         <div class="item-card">
-          <h4>This is an arti lamp.</h4>
-          <p>The traditional arti lamp has 5 flames, representing earth, water, fire, air, and space.</p>
+          <!-- ADD YOUR ARTI LAMP PHOTO HERE: Replace the <div> line below with <img src="your-arti-photo.jpg" alt="Arti lamp"> -->
+          <div class="photo-placeholder">Arti Lamp Photo Slot</div>
+          <div class="item-card-content">
+            <h4>This is an arti lamp.</h4>
+            <p>The traditional arti lamp has 5 flames, representing earth, water, fire, air, and space.</p>
+          </div>
         </div>
 
+        <!-- CARD 2: INCENSE STICKS -->
         <div class="item-card">
-          <h4>These are incense sticks.</h4>
-          <p>They are burnt to release fragrance.</p>
+          <!-- ADD YOUR INCENSE PHOTO HERE: Replace the <div> line below with <img src="your-incense-photo.jpg" alt="Incense sticks"> -->
+          <div class="photo-placeholder">Incense Sticks Photo Slot</div>
+          <div class="item-card-content">
+            <h4>These are incense sticks.</h4>
+            <p>They are burnt to release fragrance.</p>
+          </div>
         </div>
 
+        <!-- CARD 3: PRASHAD -->
         <div class="item-card">
-          <h4>This is prashad.</h4>
-          <p>Prashad means ‘grace’, eating this means receiving spiritual energy</p>
-        </div>
-
-        <div class="item-card">
-          <h4>This is mala beads</h4>
-          <p>It normally has 108 beads in total</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Nik's Section -->
-    <section id="shaivite-shrines">
-      <span class="author-tag">By Nik</span>
-      <h2>Shaivite Shrines</h2>
-      <p>
-        Hinduism has several main branches—including Shaivism, Vaishnavism, Shaktism, Smartism, and groups like ISKCON—and each has its own style of shrine.
-      </p>
-
-      <h3>What is Shaivism?</h3>
-      <p>
-        Shaivism is a major branch of Hinduism where followers (Shaivites) worship Shiva as the Supreme Being. At a Shaivite shrine—either at home or in a temple (mandir)—worshippers perform daily prayers and rituals (puja) to find spiritual peace.
-      </p>
-
-      <h3>How is it different?</h3>
-      <p>
-        While all Hindu branches include chanting and festivals, Shaivism places a much stronger focus on meditation, yoga, and asceticism (simple, self-disciplined living). In whereas, branches like Shaktism focus more on chanting and large festivals.
-      </p>
-
-      <h3>Key features of a traditional Shaivite shrine:</h3>
-      <!-- Nik: Add your list of key features below when ready -->
-      <ul>
-        <li><em>(Coming soon...)</em></li>
-      </ul>
-    </section>
-
-    <!-- Ayrton's Section -->
-    <section id="fun-facts" class="fun-facts">
-      <span class="author-tag">By Ayrton</span>
-      <h2>Ayrton Fun Facts</h2>
-      <ul>
-        <li>Originally - puja meant flowers</li>
-        <li>In traditional temple and home rituals, a deity represented by a statue (murti) is treated with the highest honors given to a distinguished royal guest.</li>
-      </ul>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>Puja Web Project &bull; Created by Jayden, Aiden, Nik, and Ayrton</p>
-  </footer>
-
-</body>
-</html>
+          <!-- ADD YOUR PRASHAD PHOTO HERE: Replace the <div> line below with <img src="your-prashad-photo.jpg" alt="Prashad"> -->
+          <div class="photo-placeholder">Prashad Photo Slot</div>
+          <div class="item-card-content">
+            <h4>This is prashad.</h4>
+            <p>
