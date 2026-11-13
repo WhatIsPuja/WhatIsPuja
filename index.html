@@ -1,317 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puja & Hindu Worship</title>
-    <style>
-        :root {
-            --bg-page: #12151c;
-            --bg-card: #1c212b;
-            --bg-box: #262d3b;
-            --accent: #f6ad55;
-            --accent-soft: rgba(246, 173, 85, 0.15);
-            --text-bright: #ffffff;
-            --text-body: #e2e8f0;
-            --text-dim: #94a3b8;
-            --border: #2e3748;
-        }
-
-        * {
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-page);
-            color: var(--text-body);
-            line-height: 1.8;
-            font-size: 17px;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Top Navigation */
-        nav {
-            background-color: #181c26;
-            border-bottom: 1px solid var(--border);
-            padding: 1rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav a {
-            color: var(--text-body);
-            text-decoration: none;
-            margin: 0 16px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 6px 12px;
-            border-radius: 6px;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        nav a:hover {
-            background-color: var(--accent-soft);
-            color: var(--accent);
-        }
-
-        /* Hero Header */
-        header {
-            text-align: center;
-            padding: 4rem 1.5rem 3rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        header h1 {
-            color: var(--text-bright);
-            font-size: 2.6rem;
-            margin: 0 0 0.75rem 0;
-            line-height: 1.2;
-        }
-
-        header p {
-            color: var(--text-dim);
-            font-size: 1.15rem;
-            margin: 0;
-        }
-
-        /* Main Content Container */
-        .container {
-            max-width: 860px;
-            margin: 0 auto 4rem auto;
-            padding: 0 1.25rem;
-        }
-
-        section {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        h2 {
-            color: var(--accent);
-            font-size: 1.75rem;
-            margin: 0 0 1.25rem 0;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        h3 {
-            color: var(--text-bright);
-            font-size: 1.35rem;
-            margin: 2rem 0 1rem 0;
-        }
-
-        p {
-            margin: 0 0 1.25rem 0;
-        }
-
-        p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Senses List */
-        .senses-list {
-            list-style: none;
-            padding: 0;
-            margin: 1.5rem 0;
-            display: grid;
-            gap: 1rem;
-        }
-
-        .senses-list li {
-            background-color: var(--bg-box);
-            padding: 1.2rem 1.4rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .senses-list strong {
-            color: var(--accent);
-            display: block;
-            margin-bottom: 0.25rem;
-            font-size: 1.05rem;
-        }
-
-        /* 2x2 Grid for Puja Items */
-        .items-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem;
-            margin-top: 1.25rem;
-        }
-
-        @media (max-width: 650px) {
-            .items-grid {
-                grid-template-columns: 1fr;
-            }
-            section {
-                padding: 1.75rem;
-            }
-        }
-
-        .item-card {
-            background-color: var(--bg-box);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.4rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .item-card h4 {
-            color: var(--text-bright);
-            font-size: 1.15rem;
-            margin: 0 0 0.5rem 0;
-        }
-
-        .item-card p {
-            color: var(--text-dim);
-            font-size: 0.98rem;
-            line-height: 1.6;
-        }
-
-        .photo-box {
-            background-color: var(--bg-page);
-            border: 1px dashed #475569;
-            border-radius: 8px;
-            padding: 1.75rem 1rem;
-            text-align: center;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Shrine Tags */
-        .branches-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0 1.5rem 0;
-        }
-
-        .branches-list li {
-            background-color: var(--bg-box);
-            color: var(--text-body);
-            padding: 0.45rem 1rem;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            border: 1px solid var(--border);
-        }
-
-        .branches-list li.highlight {
-            background-color: var(--accent);
-            color: #12151c;
-            font-weight: 700;
-            border-color: var(--accent);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem 1rem;
-            color: var(--text-dim);
-            border-top: 1px solid var(--border);
-            background-color: #0e1015;
-            font-size: 0.95rem;
-        }
-
-        footer strong {
-            color: var(--text-bright);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Puja & Hindu Worship</title>
+<style>
+:root { --bg-page: #12151c; --bg-card: #1c212b; --bg-box: #262d3b; --accent: #f6ad55; --accent-glow: rgba(246, 173, 85, 0.25); --accent-soft: rgba(246, 173, 85, 0.15); --text-bright: #ffffff; --text-body: #e2e8f0; --text-dim: #94a3b8; --border: #2e3748; }
+* { box-sizing: border-box; scroll-behavior: smooth; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-page); color: var(--text-body); line-height: 1.8; font-size: 17px; margin: 0; padding: 0; overflow-x: hidden; }
+#scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #f6ad55, #f56565); width: 0%; z-index: 200; transition: width 0.1s ease-out; }
+nav { background-color: rgba(24, 28, 38, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem; text-align: center; position: sticky; top: 0; z-index: 100; }
+nav a { color: var(--text-body); text-decoration: none; margin: 0 14px; font-weight: 600; font-size: 0.95rem; padding: 6px 12px; border-radius: 6px; transition: all 0.25s ease; display: inline-block; }
+nav a:hover { background-color: var(--accent-soft); color: var(--accent); transform: translateY(-2px); }
+header { text-align: center; padding: 4.5rem 1.5rem 3.5rem; max-width: 800px; margin: 0 auto; position: relative; animation: heroFadeDown 0.9s ease forwards; }
+header::before { content: ""; position: absolute; top: 20%; left: 50%; transform: translateX(-50%); width: 320px; height: 160px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); z-index: -1; pointer-events: none; animation: ambientPulse 4s ease-in-out infinite alternate; }
+header h1 { color: var(--text-bright); font-size: 2.7rem; margin: 0 0 0.75rem 0; line-height: 1.2; }
+header p { color: var(--text-dim); font-size: 1.15rem; margin: 0; }
+.container { max-width: 860px; margin: 0 auto 4rem auto; padding: 0 1.25rem; }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+section { background-color: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 2.5rem; margin-bottom: 2.25rem; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+section:hover { border-color: #3d485e; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35); }
+h2 { color: var(--accent); font-size: 1.75rem; margin: 0 0 1.25rem 0; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+h3 { color: var(--text-bright); font-size: 1.35rem; margin: 2rem 0 1rem 0; }
+p { margin: 0 0 1.25rem 0; }
+p:last-child { margin-bottom: 0; }
+.senses-list { list-style: none; padding: 0; margin: 1.5rem 0; display: grid; gap: 1rem; }
+.senses-list li { background-color: var(--bg-box); padding: 1.2rem 1.4rem; border-radius: 10px; border-left: 4px solid var(--accent); transition: transform 0.25s ease, background-color 0.25s ease; }
+.senses-list li:hover { transform: translateX(8px); background-color: #2c3444; }
+.senses-list strong { color: var(--accent); display: block; margin-bottom: 0.25rem; font-size: 1.05rem; }
+.items-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 1.25rem; }
+@media (max-width: 650px) { .items-grid { grid-template-columns: 1fr; } section { padding: 1.75rem; } }
+.item-card { background-color: var(--bg-box); border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem; display: flex; flex-direction: column; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+.item-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 12px 24px rgba(246, 173, 85, 0.12); }
+.item-card h4 { color: var(--text-bright); font-size: 1.15rem; margin: 0 0 0.5rem 0; }
+.item-card:hover h4 { color: var(--accent); }
+.item-card p { color: var(--text-dim); font-size: 0.98rem; line-height: 1.6; }
+.photo-box { background-color: var(--bg-page); border: 1px dashed #475569; border-radius: 8px; padding: 1.75rem 1rem; text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1rem; }
+.branches-list { display: flex; flex-wrap: wrap; gap: 0.6rem; list-style: none; padding: 0; margin: 1rem 0 1.5rem 0; }
+.branches-list li { background-color: var(--bg-box); color: var(--text-body); padding: 0.45rem 1rem; border-radius: 8px; font-size: 0.95rem; font-weight: 500; border: 1px solid var(--border); transition: transform 0.2s ease, border-color 0.2s ease; }
+.branches-list li:hover { transform: translateY(-3px); border-color: var(--accent); }
+.branches-list li.highlight { background-color: var(--accent); color: #12151c; font-weight: 700; border-color: var(--accent); animation: badgeGlow 2.5s infinite alternate; }
+footer { text-align: center; padding: 2rem 1rem; color: var(--text-dim); border-top: 1px solid var(--border); background-color: #0e1015; font-size: 0.95rem; }
+footer strong { color: var(--text-bright); }
+@keyframes heroFadeDown { 0% { opacity: 0; transform: translateY(-20px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes ambientPulse { 0% { opacity: 0.45; transform: translateX(-50%) scale(0.95); } 100% { opacity: 0.9; transform: translateX(-50%) scale(1.15); } }
+@keyframes badgeGlow { 0% { box-shadow: 0 0 8px rgba(246, 173, 85, 0.25); } 100% { box-shadow: 0 0 18px rgba(246, 173, 85, 0.65); } }
+</style>
 </head>
 <body>
-
-    <nav>
-        <a href="#what-is-puja">What's Puja?</a>
-        <a href="#how-hindus-worship">How Hindus Worship</a>
-        <a href="#puja-items">Puja Items</a>
-        <a href="#shrines">Shrines & Shaivism</a>
-    </nav>
-
-    <header>
-        <h1>Puja & Hindu Worship</h1>
-        <p>Exploring Traditions, Senses, and Shrines in Hinduism</p>
-    </header>
-
-    <div class="container">
-
-        <!-- Section 1 -->
-        <section id="what-is-puja">
-            <h2>What’s Puja?</h2>
-            <p>
-                Puja is a part of Hinduism; it’s a ceremonial worship that can range from daily rites to full on home rituals. Usually on the day you celebrate puja, October 16 to October 21, you offer flowers to a statue or an image of a God. 
-            </p>
-            <p>
-                Puja can vary a lot for different people. Different communities in different regions and even times of day can change the ritual. You even need different types of worshipers and different religious texts. 
-            </p>
-            <p>
-                When celebrating puja, the image you worship must be treated like a human e.g being put to bed and cradles to sleep. The different types of worship can decide who does the worship; what I mean is sometimes just the worshipper can do the service alone but others require priests. It can also be worshiped as an act of devotion. 
-            </p>
-            <p>
-                Puja is celebrated because it is believed it protects you from coming sorrows in life and brings spiritual enlightenment.
-            </p>
-        </section>
-
-        <!-- Section 2 -->
-        <section id="how-hindus-worship">
-            <h2>How Hindus Worship & Puja Items</h2>
-            <p>
-                When Hindus worship at a shrine, it is called puja and it uses all five senses to help them feel close to God. 
-            </p>
-            
-            <ul class="senses-list">
-                <li>
-                    <strong>Sense of Smell</strong>
-                    First, they use their sense of smell by lighting incense sticks, which makes the room smell nice and feel peaceful.
-                </li>
-                <li>
-                    <strong>Sense of Touch</strong>
-                    Next, they use their sense of touch by putting red kum kum powder on their foreheads for good luck and blessing and by counting mala beads while they say prayers.
-                </li>
-                <li>
-                    <strong>Sense of Sight</strong>
-                    For their sense of sight, they do arti by waving a small arti lamp with a flame in front of the deity to show respect.
-                </li>
-                <li>
-                    <strong>Sense of Taste</strong>
-                    Finally, after giving food offerings to the deity, they use their sense of taste by eating prashad, which is the special blessed food shared at the end.
-                </li>
-            </ul>
-
-            <h3 id="puja-items">Puja Items</h3>
-            <div class="items-grid">
-                <div class="item-card">
-                    <div class="photo-box">Photo: Arti Lamp</div>
-                    <h4>This is an arti lamp. ⬅️</h4>
-                    <p>The traditional arti lamp has 5 flames, representing earth, water, fire, air, and space.</p>
-                </div>
-
-                <div class="item-card">
-                    <div class="photo-box">Photo: Incense Sticks</div>
-                    <h4>These are incense sticks. ⬅️</h4>
-                    <p>They are burnt to release fragrance.</p>
-                </div>
-
-                <div class="item-card">
-                    <div class="photo-box">Photo: Prashad</div>
-                    <h4>This is prashad. ⬅️</h4>
-                    <p>Prashad means ‘grace’, eating this means receiving spiritual energy.</p>
-                </div>
-
-                <div class="item-card">
-                    <div class="photo-box">Photo: Mala Beads</div>
-                    <h4>This is mala beads ⬅️</h4>
-                    <p>It normally has 108 beads in total.</p>
-                </div>
+<div id="scroll-progress"></div>
+<nav>
+<a href="#what-is-puja">What's Puja?</a>
+<a href="#how-hindus-worship">How Hindus Worship</a>
+<a href="#puja-items">Puja Items</a>
+<a href="#shrines">Shrines & Shaivism</a>
+</nav>
+<header>
+<h1>Puja & Hindu Worship</h1>
+<p>Exploring Traditions, Senses, and Shrines in Hinduism</p>
+</header>
+<main class="container">
+<section id="what-is-puja" class="reveal">
+<h2>What’s Puja?</h2>
+<p>Puja is a part of Hinduism; it’s a ceremonial worship that can range from daily rites to full on home rituals. Usually on the day you celebrate puja, October 16 to October 21, you offer flowers to a statue or an image of a God.</p>
+<p>Puja can vary a lot for different people. Different communities in different regions and even times of day can change the ritual. You even need different types of worshipers and different religious texts.</p>
+<p>When celebrating puja, the image you worship must be treated like a human e.g being put to bed and cradles to sleep. The different types of worship can decide who does the worship; what I mean is sometimes just the worshipper can do the service alone but others require priests. It can also be worshiped as an act of devotion.</p>
+<p>Puja is celebrated because it is believed it protects you from coming sorrows in life and brings spiritual enlightenment.</p>
+</section>
+<section id="how-hindus-worship" class="reveal">
+<h2>How Hindus Worship & Puja Items</h2>
+<p>When Hindus worship at a shrine, it is called puja and it uses all five senses to help them feel close to God.</p>
+<ul class="senses-list">
+<li><strong>Sense of Smell</strong>First, they use their sense of smell by lighting incense sticks, which makes the room smell nice and feel peaceful.</li>
+<li><strong>Sense of Touch</strong>Next, they use their sense of touch by putting red kum kum powder on their foreheads for good luck and blessing and by counting mala beads while they say prayers.</li>
+<li><strong>Sense of Sight</strong>For their sense of sight, they do arti by waving a small arti lamp with a flame in front of the deity to show respect.</li>
+<li><strong>Sense of Taste</strong>Finally, after giving food offerings to the deity, they use their sense of taste by eating prashad, which is the special blessed food shared at the end.</li>
+</ul>
+<h3 id="puja-items">Puja Items</h3>
+<div class="items-grid">
+<div class="item-card">
+<div class="photo-box">Photo: Arti Lamp</div>
+<h4>This is an arti lamp. ⬅️</h4>
+<p>The traditional arti lamp has 5 flames, representing earth, water, fire, air, and space.</p>
+</div>
+<div class="item-card">
+<div class="photo-box">Photo: Incense Sticks</div>
+<h4>These are incense sticks. ⬅️</h4>
+<p>They are burnt to release fragrance.</p>
+</div>
+<div class="item-card">
+<div class="photo-box">Photo: Prashad</div>
+<h4>This is prashad. ⬅️</h4>
+<p>Prashad means ‘grace’, eating this means receiving spiritual energy.</p>
+</div>
+<div class="item-card">
+<div class="photo-box">Photo: Mala Beads</div>
+<h4>This is mala beads ⬅️</h4>
+<p>It normally has 108 beads in total.</p>
+</div>
+</div>
+</section>
+<section id="shrines" class="reveal">
+<h2>Shrines</h2>
+<p>There are many branches of shrines but here are the most common ones:</p>
+<ul class="branches-list">
+<li class="highlight">Shaivism</li>
+<li>Vaishnavism</li>
+<li>Shaktism</li>
+<li>Smartism</li>
+<li>ISKCON</li>
+</ul>
+<h3>Shaivism</h3>
+<p>I am writing about Shaivism. Shaivism is a major branch of Hinduism where followers (known as Shaivites) worship Shiva as the Supreme Being. In a Shaivite shrine, either at home or in a temple (mandir), worshippers focus their daily prayers and rituals, puja, on Shiva to seek spiritual peace.</p>
+<p>Here are some ways Shiva is different from other traditions: Shaivism is worshipped by meditation, yoga and asceticism, whereas Shaktism worships by chanting or going to festivals.</p>
+<h3>Shaivism Shrine Photo</h3>
+<div class="photo-box" style="padding: 3rem;">Here is a photo of a Shaivism Shrine.</div>
+</section>
+</main>
+<footer>Made by <strong>Nik, Jayden, Aiden and Ayrton</strong></footer>
+<script>
+window.addEventListener('scroll', () => {
+const scrollTop = window.scrollY;
+const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+document.getElementById('scroll-progress').style.width = progress + '%';
+});
+const revealElements = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+});
+}, { threshold: 0.12 });
+revealElements.forEach(el => observer.observe(el));
