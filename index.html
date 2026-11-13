@@ -6,14 +6,15 @@
     <title>Puja & Hindu Worship</title>
     <style>
         :root {
-            --bg-main: #0f1115;
-            --bg-card: #181b22;
-            --bg-item: #20242e;
-            --primary-accent: #f59e0b;
-            --secondary-accent: #ef4444;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border-color: #2d323e;
+            --bg-page: #12151c;
+            --bg-card: #1c212b;
+            --bg-box: #262d3b;
+            --accent: #f6ad55;
+            --accent-soft: rgba(246, 173, 85, 0.15);
+            --text-bright: #ffffff;
+            --text-body: #e2e8f0;
+            --text-dim: #94a3b8;
+            --border: #2e3748;
         }
 
         * {
@@ -22,211 +23,215 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.7;
-            color: var(--text-main);
-            background-color: var(--bg-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            line-height: 1.8;
+            font-size: 17px;
             margin: 0;
             padding: 0;
         }
 
-        header {
-            background: radial-gradient(circle at top center, #2b1d16 0%, var(--bg-main) 75%);
-            text-align: center;
-            padding: 4.5rem 1.5rem 3.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            background: linear-gradient(90deg, #fbbf24, #f87171);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        header p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-top: 0.75rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
+        /* Top Navigation */
         nav {
-            background-color: rgba(15, 17, 21, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
+            background-color: #181c26;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem;
             text-align: center;
-            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
         nav a {
-            color: var(--text-muted);
+            color: var(--text-body);
             text-decoration: none;
-            margin: 0 18px;
+            margin: 0 16px;
             font-weight: 600;
             font-size: 0.95rem;
-            transition: color 0.2s ease;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
         }
 
         nav a:hover {
-            color: var(--primary-accent);
+            background-color: var(--accent-soft);
+            color: var(--accent);
         }
 
+        /* Hero Header */
+        header {
+            text-align: center;
+            padding: 4rem 1.5rem 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            color: var(--text-bright);
+            font-size: 2.6rem;
+            margin: 0 0 0.75rem 0;
+            line-height: 1.2;
+        }
+
+        header p {
+            color: var(--text-dim);
+            font-size: 1.15rem;
+            margin: 0;
+        }
+
+        /* Main Content Container */
         .container {
-            max-width: 920px;
-            margin: 2.5rem auto;
-            padding: 0 1.5rem;
+            max-width: 860px;
+            margin: 0 auto 4rem auto;
+            padding: 0 1.25rem;
         }
 
         section {
-            background: var(--bg-card);
-            padding: 2.25rem;
-            margin-bottom: 2.25rem;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         h2 {
-            color: var(--primary-accent);
+            color: var(--accent);
             font-size: 1.75rem;
-            margin-top: 0;
-            margin-bottom: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            margin: 0 0 1.25rem 0;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
         }
 
         h3 {
-            color: #f87171;
-            font-size: 1.3rem;
-            margin-top: 2rem;
+            color: var(--text-bright);
+            font-size: 1.35rem;
+            margin: 2rem 0 1rem 0;
         }
 
         p {
-            color: #d1d5db;
-            margin-bottom: 1.1rem;
+            margin: 0 0 1.25rem 0;
         }
 
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Senses List */
         .senses-list {
             list-style: none;
             padding: 0;
             margin: 1.5rem 0;
+            display: grid;
+            gap: 1rem;
         }
 
         .senses-list li {
-            background: var(--bg-item);
-            padding: 1rem 1.25rem;
-            margin-bottom: 0.75rem;
+            background-color: var(--bg-box);
+            padding: 1.2rem 1.4rem;
             border-radius: 10px;
-            border-left: 3px solid var(--primary-accent);
-            color: #e5e7eb;
+            border-left: 4px solid var(--accent);
         }
 
         .senses-list strong {
-            color: var(--primary-accent);
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 1.05rem;
         }
 
+        /* 2x2 Grid for Puja Items */
         .items-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 1.25rem;
+        }
+
+        @media (max-width: 650px) {
+            .items-grid {
+                grid-template-columns: 1fr;
+            }
+            section {
+                padding: 1.75rem;
+            }
         }
 
         .item-card {
-            background: var(--bg-item);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .item-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary-accent);
+            background-color: var(--bg-box);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.4rem;
+            display: flex;
+            flex-direction: column;
         }
 
         .item-card h4 {
-            margin: 0 0 0.5rem 0;
-            color: #fbbf24;
+            color: var(--text-bright);
             font-size: 1.15rem;
+            margin: 0 0 0.5rem 0;
         }
 
         .item-card p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: var(--text-muted);
+            color: var(--text-dim);
+            font-size: 0.98rem;
+            line-height: 1.6;
         }
 
-        .photo-placeholder {
-            background-color: #14171d;
-            border: 1px dashed #4b5563;
+        .photo-box {
+            background-color: var(--bg-page);
+            border: 1px dashed #475569;
             border-radius: 8px;
-            padding: 2rem 1rem;
+            padding: 1.75rem 1rem;
             text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
+            color: var(--text-dim);
+            font-size: 0.9rem;
             margin-bottom: 1rem;
         }
 
+        /* Shrine Tags */
         .branches-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 0.6rem;
             list-style: none;
             padding: 0;
-            margin: 1.25rem 0;
+            margin: 1rem 0 1.5rem 0;
         }
 
         .branches-list li {
-            background-color: var(--bg-item);
-            color: var(--text-muted);
-            border: 1px solid var(--border-color);
+            background-color: var(--bg-box);
+            color: var(--text-body);
             padding: 0.45rem 1rem;
-            border-radius: 999px;
-            font-size: 0.9rem;
-            font-weight: 600;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
         }
 
         .branches-list li.highlight {
-            background: linear-gradient(135deg, #f59e0b, #ef4444);
-            color: #ffffff;
-            border: none;
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+            background-color: var(--accent);
+            color: #12151c;
+            font-weight: 700;
+            border-color: var(--accent);
         }
 
+        /* Footer */
         footer {
-            border-top: 1px solid var(--border-color);
-            background-color: #0b0d10;
-            color: var(--text-muted);
             text-align: center;
             padding: 2rem 1rem;
-            margin-top: 4rem;
+            color: var(--text-dim);
+            border-top: 1px solid var(--border);
+            background-color: #0e1015;
             font-size: 0.95rem;
         }
 
-        footer span {
-            color: var(--primary-accent);
-            font-weight: 600;
+        footer strong {
+            color: var(--text-bright);
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>Understanding Puja & Hindu Worship</h1>
-        <p>Exploring Traditions, Senses, and Shrines in Hinduism</p>
-    </header>
 
     <nav>
         <a href="#what-is-puja">What's Puja?</a>
@@ -235,9 +240,14 @@
         <a href="#shrines">Shrines & Shaivism</a>
     </nav>
 
+    <header>
+        <h1>Puja & Hindu Worship</h1>
+        <p>Exploring Traditions, Senses, and Shrines in Hinduism</p>
+    </header>
+
     <div class="container">
 
-        <!-- Section 1: What's Puja? -->
+        <!-- Section 1 -->
         <section id="what-is-puja">
             <h2>What’s Puja?</h2>
             <p>
@@ -254,35 +264,54 @@
             </p>
         </section>
 
-        <!-- Section 2: How Hindus Worship -->
+        <!-- Section 2 -->
         <section id="how-hindus-worship">
             <h2>How Hindus Worship & Puja Items</h2>
             <p>
                 When Hindus worship at a shrine, it is called puja and it uses all five senses to help them feel close to God. 
             </p>
+            
             <ul class="senses-list">
-                <li><strong>Smell:</strong> First, they use their sense of smell by lighting incense sticks, which makes the room smell nice and feel peaceful.</li>
-                <li><strong>Touch:</strong> Next, they use their sense of touch by putting red kum kum powder on their foreheads for good luck and blessing and by counting mala beads while they say prayers.</li>
-                <li><strong>Sight:</strong> For their sense of sight, they do arti by waving a small arti lamp with a flame in front of the deity to show respect.</li>
-                <li><strong>Taste:</strong> Finally, after giving food offerings to the deity, they use their sense of taste by eating prashad, which is the special blessed food shared at the end.</li>
+                <li>
+                    <strong>Sense of Smell</strong>
+                    First, they use their sense of smell by lighting incense sticks, which makes the room smell nice and feel peaceful.
+                </li>
+                <li>
+                    <strong>Sense of Touch</strong>
+                    Next, they use their sense of touch by putting red kum kum powder on their foreheads for good luck and blessing and by counting mala beads while they say prayers.
+                </li>
+                <li>
+                    <strong>Sense of Sight</strong>
+                    For their sense of sight, they do arti by waving a small arti lamp with a flame in front of the deity to show respect.
+                </li>
+                <li>
+                    <strong>Sense of Taste</strong>
+                    Finally, after giving food offerings to the deity, they use their sense of taste by eating prashad, which is the special blessed food shared at the end.
+                </li>
             </ul>
 
-            <h3 id="puja-items">Key Puja Items</h3>
+            <h3 id="puja-items">Puja Items</h3>
             <div class="items-grid">
                 <div class="item-card">
-                    <!-- Replace the div below with <img src="arti.jpg" alt="Arti Lamp" style="width:100%; border-radius:8px; margin-bottom:1rem;"> -->
-                    <div class="photo-placeholder">[Add Photo of Arti Lamp Here]</div>
+                    <div class="photo-box">Photo: Arti Lamp</div>
                     <h4>This is an arti lamp. ⬅️</h4>
                     <p>The traditional arti lamp has 5 flames, representing earth, water, fire, air, and space.</p>
                 </div>
 
                 <div class="item-card">
-                    <!-- Replace the div below with <img src="incense.jpg" alt="Incense Sticks" style="width:100%; border-radius:8px; margin-bottom:1rem;"> -->
-                    <div class="photo-placeholder">[Add Photo of Incense Sticks Here]</div>
+                    <div class="photo-box">Photo: Incense Sticks</div>
                     <h4>These are incense sticks. ⬅️</h4>
                     <p>They are burnt to release fragrance.</p>
                 </div>
 
                 <div class="item-card">
-                    <!-- Replace the div below with <img src="prashad.jpg" alt="Prashad" style="width:100%; border-radius:8px; margin-bottom:1rem;"> -->
-                    <div class="photo-placeholder">[Add Photo of Prashad Here]</div>
+                    <div class="photo-box">Photo: Prashad</div>
+                    <h4>This is prashad. ⬅️</h4>
+                    <p>Prashad means ‘grace’, eating this means receiving spiritual energy.</p>
+                </div>
+
+                <div class="item-card">
+                    <div class="photo-box">Photo: Mala Beads</div>
+                    <h4>This is mala beads ⬅️</h4>
+                    <p>It normally has 108 beads in total.</p>
+                </div>
