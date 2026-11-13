@@ -16,11 +16,7 @@
       --border-light: #fde68a;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -33,21 +29,11 @@
       background: linear-gradient(135deg, var(--primary-dark), var(--primary));
       color: #ffffff;
       text-align: center;
-      padding: 3.5rem 1.5rem;
+      padding: 3rem 1.5rem;
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
-    }
-
-    header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto;
-    }
+    header h1 { font-size: 2.4rem; margin-bottom: 0.4rem; }
+    header p { font-size: 1.1rem; opacity: 0.9; }
 
     nav {
       background-color: #ffffff;
@@ -72,21 +58,17 @@
       color: var(--primary-dark);
       font-weight: 600;
       font-size: 0.95rem;
-      transition: color 0.2s;
     }
 
-    nav a:hover {
-      color: var(--primary);
-      text-decoration: underline;
-    }
+    nav a:hover { color: var(--primary); text-decoration: underline; }
 
     main {
       max-width: 900px;
-      margin: 2.5rem auto;
+      margin: 2rem auto;
       padding: 0 1.25rem;
       display: flex;
       flex-direction: column;
-      gap: 2.5rem;
+      gap: 2rem;
     }
 
     section {
@@ -112,7 +94,7 @@
 
     h2 {
       color: var(--primary-dark);
-      font-size: 1.75rem;
+      font-size: 1.7rem;
       margin-bottom: 1rem;
       border-bottom: 2px solid var(--border-light);
       padding-bottom: 0.5rem;
@@ -120,24 +102,18 @@
 
     h3 {
       color: var(--primary);
-      font-size: 1.25rem;
-      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      margin-top: 1.4rem;
       margin-bottom: 0.5rem;
     }
 
-    p {
-      margin-bottom: 1rem;
-    }
+    p { margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
 
-    p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Grid & Cards for Puja Items */
     .items-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
+      gap: 1.25rem;
       margin-top: 1.5rem;
     }
 
@@ -151,20 +127,19 @@
       flex-direction: column;
     }
 
-    /* Styles any photo you add inside a card */
-    .item-card img {
+    .item-card img, .shrine-photo img {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
       display: block;
     }
 
-    /* Placeholder box shown until you add your own photo */
     .photo-placeholder {
       width: 100%;
       height: 160px;
       background-color: #fef3c7;
-      border-bottom: 2px dashed var(--accent);
+      border: 2px dashed var(--accent);
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -175,22 +150,17 @@
       padding: 1rem;
     }
 
-    .item-card-content {
-      padding: 1.25rem;
+    .item-card .photo-placeholder {
+      border-radius: 0;
+      border-top: none;
+      border-left: none;
+      border-right: none;
     }
 
-    .item-card h4 {
-      color: var(--primary-dark);
-      font-size: 1.05rem;
-      margin-bottom: 0.4rem;
-    }
+    .item-card-content { padding: 1.25rem; }
+    .item-card h4 { color: var(--primary-dark); font-size: 1.05rem; margin-bottom: 0.4rem; }
+    .item-card p { font-size: 0.95rem; color: var(--text-muted); }
 
-    .item-card p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
-    /* Fun Facts Box */
     .fun-facts {
       background: linear-gradient(to right, #fffbeb, #fef3c7);
       border: 2px dashed var(--accent);
@@ -201,10 +171,6 @@
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
-    }
-
-    .fun-facts li {
-      font-size: 1.05rem;
     }
 
     footer {
@@ -233,7 +199,7 @@
 
   <main>
 
-    <!-- Jayden's Section -->
+    <!-- JAYDEN'S SECTION -->
     <section id="what-is-puja">
       <span class="author-tag">By Jayden</span>
       <h2>What’s Puja?</h2>
@@ -245,7 +211,7 @@
       </p>
     </section>
 
-    <!-- Aiden's Section -->
+    <!-- AIDEN'S SECTION -->
     <section id="how-hindus-worship">
       <span class="author-tag">By Aiden</span>
       <h2>How Hindus Worship &amp; Puja Item</h2>
@@ -254,10 +220,8 @@
       </p>
 
       <div class="items-grid">
-        
-        <!-- CARD 1: ARTI LAMP -->
         <div class="item-card">
-          <!-- ADD YOUR ARTI LAMP PHOTO HERE: Replace the <div> line below with <img src="your-arti-photo.jpg" alt="Arti lamp"> -->
+          <!-- ADD ARTI LAMP PHOTO: Replace the <div> below with <img src="arti-lamp.jpg" alt="Arti lamp"> -->
           <div class="photo-placeholder">Arti Lamp Photo Slot</div>
           <div class="item-card-content">
             <h4>This is an arti lamp.</h4>
@@ -265,9 +229,8 @@
           </div>
         </div>
 
-        <!-- CARD 2: INCENSE STICKS -->
         <div class="item-card">
-          <!-- ADD YOUR INCENSE PHOTO HERE: Replace the <div> line below with <img src="your-incense-photo.jpg" alt="Incense sticks"> -->
+          <!-- ADD INCENSE PHOTO: Replace the <div> below with <img src="incense.jpg" alt="Incense sticks"> -->
           <div class="photo-placeholder">Incense Sticks Photo Slot</div>
           <div class="item-card-content">
             <h4>These are incense sticks.</h4>
@@ -275,10 +238,7 @@
           </div>
         </div>
 
-        <!-- CARD 3: PRASHAD -->
         <div class="item-card">
-          <!-- ADD YOUR PRASHAD PHOTO HERE: Replace the <div> line below with <img src="your-prashad-photo.jpg" alt="Prashad"> -->
+          <!-- ADD PRASHAD PHOTO: Replace the <div> below with <img src="prashad.jpg" alt="Prashad"> -->
           <div class="photo-placeholder">Prashad Photo Slot</div>
           <div class="item-card-content">
-            <h4>This is prashad.</h4>
-            <p>
