@@ -3,83 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is Puja?</title>
+    <title>Puja & Hindu Worship</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #0f172a;
-            color: #f1f5f9;
-            max-width: 650px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            line-height: 1.6;
+        :root {
+            --primary-color: #d9534f;
+            --secondary-color: #f0ad4e;
+            --bg-color: #fdf8f2;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --accent-bg: #fff3e0;
         }
-        h1 { font-size: 2.2rem; margin-bottom: 4px; font-weight: 800; letter-spacing: -0.03em; }
-        p.sub { color: #94a3b8; margin: 0 0 32px 0; font-size: 1.05rem; }
-        h2 { font-size: 1.4rem; color: #f97316; margin-top: 32px; font-weight: 700; letter-spacing: -0.02em; }
-        p { color: #cbd5e1; margin-bottom: 16px; }
-        ul { padding-left: 20px; margin-bottom: 20px; }
-        li { margin-bottom: 10px; color: #cbd5e1; }
-        .keyword { color: #f97316; font-weight: 600; }
-        .sense-list { display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
-        .sense-item { background: #1e293b; padding: 16px; border-radius: 8px; border: 1px solid #334155; }
-        .sense-name { font-weight: bold; color: #f8fafc; display: block; margin-bottom: 4px; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #d9534f, #f0ad4e);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            opacity: 0.95;
+        }
+
+        nav {
+            background-color: #333;
+            text-align: center;
+            padding: 0.75rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary-color);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid var(--accent-bg);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #b5423e;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .item-card {
+            background: var(--accent-bg);
+            padding: 1.25rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .item-card h4 {
+            margin-top: 0;
+            color: #8a4b08;
+            font-size: 1.15rem;
+        }
+
+        .photo-placeholder {
+            background-color: #eaeaea;
+            border: 2px dashed #999;
+            border-radius: 6px;
+            padding: 1.5rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .branches-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .branches-list li {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .branches-list li.highlight {
+            background-color: #8a2be2;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            background-color: #2c2c2c;
+            color: #f1f1f1;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 1rem;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>What is Puja?</h1>
-        <p class="sub">Key Stage 3 Religious Education Guide</p>
+        <h1>Understanding Puja & Hindu Worship</h1>
+        <p>Exploring Traditions, Senses, and Shrines in Hinduism</p>
     </header>
 
-    <main>
-        <p><strong>Puja</strong> is the central act of worship in Hinduism. It is a ritual performed to host, honour, and worship one or more deities. For Hindus, Puja is not just about reciting prayers; it is a highly interactive, ritualistic expression of love, devotion, and surrender designed to build a real, reciprocal spiritual connection between the human devotee and the divine.</p>
+    <nav>
+        <a href="#what-is-puja">What's Puja?</a>
+        <a href="#how-hindus-worship">How Hindus Worship</a>
+        <a href="#puja-items">Puja Items</a>
+        <a href="#shrines">Shrines & Shaivism</a>
+    </nav>
 
-        <h2>Where Worship Takes Place</h2>
-        <p>Puja can take place in a communal setting or in total privacy, reflecting the deeply adaptable nature of Hindu practice:</p>
-        <ul>
-            <li><strong>The Home Shrine (Ghar Mandir):</strong> Most Hindu households dedicate a quiet room, corner, or cupboard to a family shrine. This shrine houses pictures or statues of specific deities. Home Puja is usually a daily routine, performed in the morning or evening by family members to bless the household and ground everyday tasks in spirituality.</li>
-            <li><strong>The Temple (Mandir):</strong> A Mandir is considered the earthly home of the deities. Public Pujas are led by a trained priest known as a <span class="keyword">Brahmin</span>, who speaks holy scripts in <span class="keyword">Sanskrit</span>. These large gatherings build strong community bonds and are highly synchronized, featuring mass prayers, loud music, and shared meals.</li>
-        </ul>
+    <div class="container">
 
-        <h2>Engaging the 5 Senses</h2>
-        <p>A core theological concept behind Hindu ritual is that the mind is easily distracted by the material world. To counteract this, a traditional Puja uses sensory objects on a worship tray to occupy all <strong>five human senses</strong>, redirecting the devotee's entire focus toward the divine:</p>
-        
-        <div class="sense-list">
-            <div class="sense-item">
-                <span class="sense-name">1. Sight (<span class="keyword">Darshan</span>)</span>
-                Devotees gaze intently into the eyes of the sacred image or statue, known as the <span class="keyword">Murti</span>. Hindus believe the deity is spiritually present within the Murti. This visual exchange allows the worshipper to see God and receive divine blessings directly back through the eyes.
-            </div>
-            <div class="sense-item">
-                <span class="sense-name">2. Hearing</span>
-                A brass bell called a <span class="keyword">Ghanti</span> is rung repeatedly to mark the start of the ritual, awaken the mind, and ward off negative thoughts. Worshippers also chant ancient sound formulas called <span class="keyword">Mantras</span> (like 'Om') and sing devotional hymns known as <span class="keyword">Bhajans</span>.
-            </div>
-            <div class="sense-item">
-                <span class="sense-name">3. Smell</span>
-                Incense sticks, or <span class="keyword">Agarbatti</span>, are burned alongside fresh flowers like marigolds or jasmines. The sweet fragrances serve a dual purpose: they purify the air to create a sanctified space and symbolize the devotee's prayers silently rising up to heaven.
-            </div>
-            <div class="sense-item">
-                <span class="sense-name">4. Touch</span>
-                Devotees touch the base of the Murti or bow flat on the floor to show complete humility. They also gently wave their cupped hands over the holy flame of the burning lamp, then press their warm palms to their eyes and forehead to absorb the deity's energy.
-            </div>
-            <div class="sense-item">
-                <span class="sense-name">5. Taste</span>
-                Pure offerings of fruit, cooked rice, water, and traditional sweets are placed before the Murti. Hindus believe the deity symbolically consumes the spiritual essence of the food. The physical food left behind becomes blessed and is distributed to the congregation to eat as <span class="keyword">Prashad</span>.
-            </div>
-        </div>
+        <!-- Section 1: What's Puja? -->
+        <section id="what-is-puja">
+            <h2>What’s Puja?</h2>
+            <p>
+                Puja is a part of Hinduism; it’s a ceremonial worship that can range from daily rites to full on home rituals. Usually on the day you celebrate puja, October 16 to October 21, you offer flowers to a statue or an image of a God. 
+            </p>
+            <p>
+                Puja can vary a lot for different people. Different communities in different regions and even times of day can change the ritual. You even need different types of worshipers and different religious texts. 
+            </p>
+            <p>
+                When celebrating puja, the image you worship must be treated like a human e.g being put to bed and cradles to sleep. The different types of worship can decide who does the worship; what I mean is sometimes just the worshipper can do the service alone but others require priests. It can also be worshiped as an act of devotion. 
+            </p>
+            <p>
+                Puja is celebrated because it is believed it protects you from coming sorrows in life and brings spiritual enlightenment.
+            </p>
+        </section>
 
-        <h2>The Aarti Ceremony</h2>
-        <p>The climax of a standard Puja is the <strong>Aarti</strong> ceremony. A designated tray holding a small metal lamp with burning cotton wicks (usually soaked in clarified butter, or <span class="keyword">ghee</span>) is slowly rotated in a clockwise direction in front of the Murti. This circular movement represents the cycle of life and reminds worshippers that God is the absolute center of the universe. As the light is offered, the atmosphere fills with the ringing of large bells, the blowing of conch shells, and rhythmic congregational singing.</p>
+        <!-- Section 2: How Hindus Worship -->
+        <section id="how-hindus-worship">
+            <h2>How Hindus Worship & Puja Items</h2>
+            <p>
+                When Hindus worship at a shrine, it is called puja and it uses all five senses to help them feel close to God. 
+            </p>
+            <ul>
+                <li><strong>Smell:</strong> First, they use their sense of smell by lighting incense sticks, which makes the room smell nice and feel peaceful.</li>
+                <li><strong>Touch:</strong> Next, they use their sense of touch by putting red kum kum powder on their foreheads for good luck and blessing and by counting mala beads while they say prayers.</li>
+                <li><strong>Sight:</strong> For their sense of sight, they do arti by waving a small arti lamp with a flame in front of the deity to show respect.</li>
+                <li><strong>Taste:</strong> Finally, after giving food offerings to the deity, they use their sense of taste by eating prashad, which is the special blessed food shared at the end.</li>
+            </ul>
 
-        <h2>Why Puja Matters to Hindus</h2>
-        <p>For Year 8 pupils analyzing the impact of religion, performing Puja carries deep philosophical importance:</p>
-        <ul>
-            <li><strong>Devotion (<span class="keyword">Bhakti</span>):</strong> It is an expression of Bhakti Marga, the spiritual path of unselfish love and emotional attachment to a personal God as a route to salvation.</li>
-            <li><strong>Duty (<span class="keyword">Dharma</span>):</strong> Regular worship fulfills an individual's personal and cosmic duty, maintaining proper moral balance and order in their daily life.</li>
-            <li><strong>Action (<span class="keyword">Karma</span>):</strong> Performing selfless acts of devotion and maintaining positive intentions during Puja helps an individual accumulate good Karma, which is essential for progressing through the cycle of reincarnation.</li>
-        </ul>
-    </main>
+            <h3 id="puja-items">Key Puja Items</h3>
+            <div class="items-grid">
+                <div class="item-card">
+                    <!-- Replace the div below with <img src="your-arti-image.jpg" alt="Arti Lamp" style="width:100%; border-radius:6px;"> -->
+                    <div class="photo-placeholder">[Add Photo of Arti Lamp Here]</div>
+                    <h4>This is an arti lamp. ⬅️</h4>
+                    <p>The traditional arti lamp has 5 flames, representing earth, water, fire, air, and space.</p>
+                </div>
 
-</body>
-</html>
+                <div class="item-card">
+                    <!-- Replace the div below with <img src="your-incense-image.jpg" alt="Incense Sticks" style="width:100%; border-radius:6px;"> -->
+                    <div class="photo-placeholder">[Add Photo of Incense Sticks Here]</div>
+                    <h4>These are incense sticks. ⬅️</h4>
+                    <p>They are burnt to release fragrance.</p>
+                </div>
+
+                <div class="item-card">
+                    <!-- Replace the div below with <img src="your-prashad-image.jpg" alt="Prashad" style="width:100%; border-radius:6px;"> -->
+                    <div class="photo-placeholder">[Add Photo of Prashad Here]</div>
+                    <h4>This is prashad. ⬅️</h4>
+                    <p>Prashad means ‘grace’, eating this means receiving spiritual energy.</p>
+                </div>
+
+                <div class="item-card">
+                    <!-- Replace the div below with <img src="your-mala-image.jpg" alt="Mala Beads" style="width:100%; border-radius:6px;"> -->
+                    <div class="photo-placeholder">[Add Photo of Mala Beads Here]</div>
+                    <h4>This is mala beads ⬅️</h4>
+                    <p>It normally has 108 beads in total.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Shrines -->
+        <section id="shrines">
+            <h2>Shrines</h2>
+            <p>There are many branches of shrines but here are the most common ones:</p>
+            <ul class="branches-list">
+                <li class="highlight">Shaivism</li>
+                <li>Vaishnavism</li>
+                <li>Shaktism</li>
+                <li>Smartism</li>
+                <li>ISKCON</li>
+            </ul>
+
+            <h3>Focus: Shaivism</h3>
+            <p>
+                I am writing about Shaivism. Shaivism is a major branch of Hinduism where followers (known as Shaivites) worship Shiva as the Supreme Being. In a Shaivite shrine, either at home or in a temple (mandir), worshippers focus their daily prayers and rituals, puja, on Shiva to seek spiritual peace.
+            </p>
+            <p>
+                Here are some ways Shiva is different from other traditions: Shaivism is worshipped by meditation, yoga and asceticism, whereas Shaktism worships by chanting or going to festivals.
+            </p>
+
+            <div style="margin-top: 1.5rem;">
+                <p><strong>Here is a photo of a Shaivism Shrine:</strong></p>
+                <!-- Replace the div below with <img src="your-shrine-image.jpg" alt="Shaivism Shrine" style="width:100%; border-radius:8px;"> -->
+                <div class="photo-placeholder" style="padding: 3rem;">
+                    [Insert your Shaivism Shrine photo here]
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
