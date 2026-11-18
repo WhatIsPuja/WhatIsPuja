@@ -5,80 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What is Puja?</title>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background-color: #0b0f19;
-            color: #e2e8f0;
+            background-color: #090d16;
+            color: #cbd5e1;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        @keyframes slideFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         header {
-            background: linear-gradient(180deg, #111827 0%, #0b0f19 100%);
+            background: linear-gradient(180deg, #0f172a 0%, #090d16 100%);
             text-align: center;
             padding: 45px 20px;
-            border-bottom: 2px solid #1e293b;
+            border-bottom: 1px solid #1e293b;
         }
 
         header h1 {
-            color: #38bdf8;
+            color: #60a5fa;
             margin: 0;
             font-size: 2.6rem;
         }
 
         header p {
-            color: #94a3b8;
+            color: #64748b;
             margin-top: 8px;
         }
 
         nav {
-            background-color: #111827;
+            background-color: #0f172a;
             text-align: center;
             padding: 14px;
             border-bottom: 1px solid #1e293b;
             position: sticky;
             top: 0;
+            z-index: 100;
         }
 
         nav a {
-            color: #cbd5e1;
+            color: #94a3b8;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 12px;
             font-weight: 600;
             padding: 6px 12px;
             border-radius: 12px;
             transition: 0.2s;
+            display: inline-block;
         }
 
         nav a:hover {
             background-color: #1e293b;
-            color: #38bdf8;
+            color: #60a5fa;
         }
 
         .container {
             max-width: 850px;
-            margin: 30px auto;
+            margin: 35px auto;
             padding: 0 20px;
         }
 
         .card {
-            background-color: #111827;
+            background-color: #0f172a;
             padding: 28px;
-            margin-bottom: 28px;
+            margin-bottom: 30px;
             border-radius: 18px;
             border: 1px solid #1e293b;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide-left {
+            animation: slideFromLeft 0.8s ease-out forwards;
+        }
+
+        .slide-right {
+            animation: slideFromRight 0.8s ease-out forwards;
         }
 
         h2 {
-            color: #38bdf8;
+            color: #60a5fa;
             margin-top: 0;
             border-bottom: 1px solid #1e293b;
             padding-bottom: 10px;
         }
 
         h3 {
-            color: #7dd3fc;
+            color: #93c5fd;
             margin-top: 20px;
             margin-bottom: 6px;
         }
@@ -88,21 +126,19 @@
             max-height: 360px;
             object-fit: cover;
             border-radius: 14px;
-            margin-top: 12px;
-            margin-bottom: 18px;
-            border: 1px solid #334155;
+            margin-top: 15px;
+            border: 1px solid #1e293b;
         }
 
-        /* Item boxes with rounded corners and image on the left */
         .item-box {
             display: flex;
             align-items: center;
-            background-color: #182234;
+            background-color: #151f32;
             padding: 16px;
             border-radius: 14px;
             margin-bottom: 16px;
             gap: 20px;
-            border: 1px solid #283548;
+            border: 1px solid #1e293b;
         }
 
         .item-box img {
@@ -110,7 +146,7 @@
             height: 115px;
             object-fit: cover;
             border-radius: 12px;
-            border: 1px solid #38bdf8;
+            border: 1px solid #3b82f6;
             flex-shrink: 0;
         }
 
@@ -127,24 +163,24 @@
         }
 
         li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         li strong {
-            color: #7dd3fc;
+            color: #93c5fd;
         }
 
         footer {
-            background-color: #111827;
+            background-color: #0f172a;
             text-align: center;
             padding: 25px;
             margin-top: 40px;
             border-top: 1px solid #1e293b;
-            color: #94a3b8;
+            color: #64748b;
         }
 
         footer span {
-            color: #38bdf8;
+            color: #60a5fa;
             font-weight: bold;
         }
     </style>
@@ -161,28 +197,25 @@
         <a href="#worship">How Hindus Worship</a>
         <a href="#items">Puja Items</a>
         <a href="#shaivite">Shaivite Shrines</a>
+        <a href="#facts">Fun Facts</a>
     </nav>
 
     <div class="container">
 
-        <!-- Section 1: What's Puja? -->
-        <div id="what" class="card">
+        <div id="what" class="card slide-left">
             <h2>What’s Puja?</h2>
             <p>Puja is a part of Hinduism; it’s a ceremonial worship that can range from daily rites to full on home rituals. Usually on the day you celebrate puja, October 16 to October 21, you offer flowers to a statue or an image of a God. Puja can vary a lot for different people. Different communities in different regions and even times of day can change the ritual. You even need different types of worshipers and different religious texts.</p>
             <p>When celebrating puja, the image you worship must be treated like a human, e.g. being put to bed and cradled to sleep. The different types of worship can decide who does the worship; what I mean is sometimes just the worshipper can do the service alone, but others require priests. It can also be worshiped as an act of devotion.</p>
             <p>Puja is celebrated because it is believed it protects you from coming sorrows in life and brings spiritual enlightenment.</p>
-            
             <img src="shrine.jpg" alt="Hindu Shrine" class="main-img">
         </div>
 
-        <!-- Section 2: How Hindus Worship -->
-        <div id="worship" class="card">
+        <div id="worship" class="card slide-right">
             <h2>How Hindus Worship</h2>
             <p>When Hindus worship at a shrine, it is called puja and it uses all five senses to help them feel close to God. First, they use their sense of smell by lighting incense sticks, which makes the room smell nice and feel peaceful. Next, they use their sense of touch by putting red kum kum powder on their foreheads for good luck and blessing and by counting mala beads while they say prayers. For their sense of sight, they do arti by waving a small arti lamp with a flame in front of the deity to show respect. Finally, after giving food offerings to the deity, they use their sense of taste by eating prashad, which is the special blessed food shared at the end.</p>
         </div>
 
-        <!-- Section 3: Puja Items -->
-        <div id="items" class="card">
+        <div id="items" class="card slide-left">
             <h2>Puja Items</h2>
 
             <div class="item-box">
@@ -218,8 +251,7 @@
             </div>
         </div>
 
-        <!-- Section 4: Shaivite Shrines -->
-        <div id="shaivite" class="card">
+        <div id="shaivite" class="card slide-right">
             <h2>Shaivite Shrines</h2>
             <p>Hinduism has several main branches—including Shaivism, Vaishnavism, Shaktism, Smartism, and groups like ISKCON—and each has its own style of shrine.</p>
 
@@ -230,9 +262,11 @@
             <p>While all Hindu branches include chanting and festivals, Shaivism places a much stronger focus on meditation, yoga, and asceticism (simple, self-disciplined living). In contrast, branches like Shaktism focus more on chanting and large festivals.</p>
 
             <h3>Key features of a traditional Shaivite shrine:</h3>
-            
             <img src="shaivite.jpg" alt="Traditional Shaivite Shrine" class="main-img">
+        </div>
 
+        <div id="facts" class="card slide-left">
+            <h2>Fun Facts About Puja</h2>
             <ul>
                 <li><strong>Flower roots:</strong> The word puja likely comes from the ancient Tamil word <em>pu</em>, meaning "flower."</li>
                 <li><strong>VIP treatment:</strong> Deities are treated like honoured guests—worshippers wake them, bathe them, dress them, and serve them meals.</li>
@@ -241,13 +275,3 @@
                 <li><strong>Not just for gods:</strong> Special pujas also honour everyday things, including Kukur Tihar (a festival celebrating dogs) and Vishwakarma Puja (blessing tools and vehicles).</li>
                 <li><strong>Eyes painted last:</strong> For big clay statues, artisans paint the eyes on in the dark at the very end to symbolically bring the deity to life.</li>
             </ul>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>Made by <span>Ayrton, Nik, Aiden, and Jayden</span></p>
-    </footer>
-
-</body>
-</html>
