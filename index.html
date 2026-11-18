@@ -5,131 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What is Puja?</title>
     <style>
-        /* Basic page styling */
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #fdf6ec;
-            color: #333333;
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
 
-        /* Header styling */
         header {
-            background-color: #e65100;
-            color: white;
+            background-color: #1c1c1c;
             text-align: center;
             padding: 40px 20px;
-            border-bottom: 5px solid #ffb300;
+            border-bottom: 3px solid #f59e0b;
         }
 
         header h1 {
+            color: #f59e0b;
             margin: 0;
-            font-size: 2.8em;
+            font-size: 2.5rem;
         }
 
         header p {
-            font-size: 1.2em;
-            margin-top: 10px;
+            color: #aaaaaa;
+            margin-top: 8px;
         }
 
-        /* Navigation bar */
         nav {
-            background-color: #bf360c;
+            background-color: #181818;
             text-align: center;
             padding: 12px;
-            position: sticky;
-            top: 0;
+            border-bottom: 1px solid #2c2c2c;
         }
 
         nav a {
-            color: white;
+            color: #e0e0e0;
             text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
-            font-size: 1.05em;
         }
 
         nav a:hover {
-            text-decoration: underline;
-            color: #ffe082;
+            color: #f59e0b;
         }
 
-        /* Main content container */
         .container {
-            max-width: 900px;
-            margin: 25px auto;
+            max-width: 850px;
+            margin: 30px auto;
             padding: 0 20px;
         }
 
-        /* Content cards */
-        .card {
-            background-color: white;
+        .box {
+            background-color: #1e1e1e;
             padding: 25px;
             margin-bottom: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-left: 6px solid #e65100;
+            border-radius: 8px;
+            border: 1px solid #2e2e2e;
         }
 
         h2 {
-            color: #e65100;
+            color: #f59e0b;
             margin-top: 0;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
         }
 
-        /* Image styling */
-        .image-box {
-            text-align: center;
-            margin: 20px 0;
+        h3 {
+            color: #fbbf24;
+            margin-bottom: 5px;
         }
 
-        .image-box img {
-            max-width: 100%;
-            height: auto;
+        .main-img {
+            width: 100%;
             max-height: 350px;
-            border-radius: 8px;
-            border: 3px solid #ffb300;
-        }
-
-        .caption {
-            font-size: 0.9em;
-            color: #666666;
-            font-style: italic;
-            margin-top: 5px;
-        }
-
-        /* Grid for Puja tray items */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
+            object-fit: cover;
+            border-radius: 6px;
             margin-top: 15px;
+            border: 1px solid #333;
         }
 
-        .grid-item {
-            background-color: #fff8e1;
+        /* Layout for the Puja items with pictures on the left */
+        .item-row {
+            display: flex;
+            align-items: center;
+            background-color: #252525;
             padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #ffe082;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            gap: 20px;
         }
 
-        .grid-item h3 {
-            margin-top: 0;
-            color: #bf360c;
+        .item-row img {
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #444;
+            flex-shrink: 0;
         }
 
-        /* Footer styling */
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li strong {
+            color: #fbbf24;
+        }
+
         footer {
-            background-color: #333333;
-            color: white;
+            background-color: #1c1c1c;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             margin-top: 40px;
+            border-top: 2px solid #2c2c2c;
+            color: #999999;
         }
 
-        footer strong {
-            color: #ffb300;
+        footer span {
+            color: #f59e0b;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -137,101 +136,106 @@
 
     <header>
         <h1>What is Puja?</h1>
-        <p>Exploring Hindu Worship at Home and in the Mandir</p>
+        <p>Year 8 Religious Studies Project</p>
     </header>
 
     <nav>
-        <a href="#intro">Introduction</a>
-        <a href="#senses">The Five Senses</a>
-        <a href="#tray">The Puja Tray</a>
-        <a href="#mandir">Home vs Mandir</a>
+        <a href="#what">What is Puja?</a>
+        <a href="#worship">How Hindus Worship</a>
+        <a href="#items">Puja Items</a>
+        <a href="#shaivite">Shaivite Shrines</a>
     </nav>
 
     <div class="container">
 
-        <!-- Section 1: Introduction -->
-        <section id="intro" class="card">
-            <h2>Introduction to Puja</h2>
-            <p><strong>Puja</strong> is the Hindu act of worship. It is a way for Hindus to show love, respect, and devotion to God (Brahman) and the different deities, such as Ganesha, Lakshmi, or Shiva.</p>
-            <p>Puja can be performed every day at home in front of a family shrine, or together with the community at a Hindu temple called a <strong>Mandir</strong>. Before starting Puja, Hindus take off their shoes and wash to make sure they are clean and respectful.</p>
+        <!-- Section 1 -->
+        <div id="what" class="box">
+            <h2>What’s Puja?</h2>
+            <p>Puja is a part of Hinduism; it’s a ceremonial worship that can range from daily rites to full on home rituals. Usually on the day you celebrate puja, October 16 to October 21, you offer flowers to a statue or an image of a God.</p>
+            <p>Puja can vary a lot for different people. Different communities in different regions and even times of day can change the ritual. You even need different types of worshipers and different religious texts.</p>
+            <p>When celebrating puja, the image you worship must be treated like a human, e.g. being put to bed and cradled to sleep. The different types of worship can decide who does the worship; sometimes just the worshipper can do the service alone, while others require priests. It can also be worshiped as an act of devotion.</p>
+            <p>Puja is celebrated because it is believed it protects you from coming sorrows in life and brings spiritual enlightenment.</p>
             
-            <div class="image-box">
-                <!-- Replace 'shrine.jpg' with your own image file name -->
-                <img src="shrine.jpg" alt="A colourful Hindu home shrine with statues of deities">
-                <p class="caption">A Hindu home shrine decorated with flowers and murtis (statues of deities).</p>
-            </div>
-        </section>
+            <img src="shrine.jpg" alt="Hindu Puja Shrine" class="main-img">
+        </div>
 
-        <!-- Section 2: The Five Senses -->
-        <section id="senses" class="card">
-            <h2>Worship Using All Five Senses</h2>
-            <p>Hindu worship is very sensory. Hindus believe that using all five senses helps them focus their minds completely on God:</p>
+        <!-- Section 2 -->
+        <div id="worship" class="box">
+            <h2>How Hindus Worship</h2>
+            <p>When Hindus worship at a shrine, it is called puja and it uses all five senses to help them feel close to God:</p>
             <ul>
-                <li><strong>Sight:</strong> Looking at the bright colours and statues (<em>murtis</em>) of the deities.</li>
-                <li><strong>Sound:</strong> Ringing a bell to wake up the deity and chanting prayers (<em>mantras</em>).</li>
-                <li><strong>Smell:</strong> Burning sweet-smelling incense sticks to purify the air.</li>
-                <li><strong>Touch:</strong> Putting a red mark (<em>tilak</em>) on the forehead as a blessing.</li>
-                <li><strong>Taste:</strong> Sharing blessed food (<em>prashad</em>) at the end of worship.</li>
+                <li><strong>Smell:</strong> First, they use their sense of smell by lighting incense sticks, which makes the room smell nice and feel peaceful.</li>
+                <li><strong>Touch:</strong> Next, they use their sense of touch by putting red kum kum powder on their foreheads for good luck and blessing, and by counting mala beads while they say prayers.</li>
+                <li><strong>Sight:</strong> For their sense of sight, they do arti by waving a small arti lamp with a flame in front of the deity to show respect.</li>
+                <li><strong>Taste:</strong> Finally, after giving food offerings to the deity, they use their sense of taste by eating prashad, which is the special blessed food shared at the end.</li>
             </ul>
-        </section>
+        </div>
 
-        <!-- Section 3: The Puja Tray -->
-        <section id="tray" class="card">
-            <h2>Items on a Puja Tray</h2>
-            <p>During Puja, worshipers use a special metal tray containing important symbolic items:</p>
-            
-            <div class="grid">
-                <div class="grid-item">
-                    <h3>🔔 Bell (Ghanta)</h3>
-                    <p>Rung at the start of Puja to invite the deity to be present and focus the worshiper's mind.</p>
-                </div>
-                <div class="grid-item">
-                    <h3>🕯️ Diva Lamp</h3>
-                    <p>A small oil lamp with a flame that represents light, knowledge, and God's presence.</p>
-                </div>
-                <div class="grid-item">
-                    <h3>🌿 Incense Stick</h3>
-                    <p>Lit to create a pleasant scent that fills the room and shows respect to the deity.</p>
-                </div>
-                <div class="grid-item">
-                    <h3>🔴 Kumkum Powder</h3>
-                    <p>Red paste used to place a dot (tilak) on the statue and the worshiper's forehead.</p>
-                </div>
-                <div class="grid-item">
-                    <h3>💧 Water & Spoon</h3>
-                    <p>Used to wash the murti and offer a drink to the deity as a sign of hospitality.</p>
-                </div>
-                <div class="grid-item">
-                    <h3>🍎 Food Offerings</h3>
-                    <p>Fruit, nuts, or sweets offered to God. Once blessed, it becomes <em>prashad</em> and is eaten.</p>
+        <!-- Section 3 -->
+        <div id="items" class="box">
+            <h2>Puja Items</h2>
+
+            <div class="item-row">
+                <img src="arti.jpg" alt="Arti Lamp">
+                <div>
+                    <h3>This is an arti lamp</h3>
+                    <p>The traditional arti lamp has 5 flames, representing earth, water, fire, air, and space.</p>
                 </div>
             </div>
 
-            <div class="image-box">
-                <!-- Replace 'tray.jpg' with your own image file name -->
-                <img src="tray.jpg" alt="A traditional metal Puja tray with a lamp, bell, and flowers">
-                <p class="caption">A traditional Puja tray ready for daily worship.</p>
+            <div class="item-row">
+                <img src="incense.jpg" alt="Incense Sticks">
+                <div>
+                    <h3>These are incense sticks</h3>
+                    <p>They are burnt to release fragrance.</p>
+                </div>
             </div>
-        </section>
 
-        <!-- Section 4: Home vs Mandir -->
-        <section id="mandir" class="card">
-            <h2>Puja at Home vs. Puja at the Mandir</h2>
-            <p>While most Hindus perform Puja every day at their home shrine, many also visit the <strong>Mandir</strong> (temple) for special festivals or weekly worship.</p>
-            <p>At the Mandir, a priest (<em>Pandit</em>) leads the prayers, and worshipers join together to sing hymns called <em>bhajans</em>. A special part of Mandir worship is <strong>Arti</strong>, where the Diva lamp is waved in front of the deities and then passed around so worshipers can cup their hands over the flame and bring the warmth to their foreheads as a blessing.</p>
-
-            <div class="image-box">
-                <!-- Replace 'mandir.jpg' with your own image file name -->
-                <img src="mandir.jpg" alt="Inside a Hindu Mandir during worship">
-                <p class="caption">Hindus gathering together for worship inside a Mandir.</p>
+            <div class="item-row">
+                <img src="prashad.jpg" alt="Prashad">
+                <div>
+                    <h3>This is prashad</h3>
+                    <p>Prashad means ‘grace’, eating this means receiving spiritual energy.</p>
+                </div>
             </div>
-        </section>
+
+            <div class="item-row">
+                <img src="mala.jpg" alt="Mala Beads">
+                <div>
+                    <h3>This is mala beads</h3>
+                    <p>It normally has 108 beads in total.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div id="shaivite" class="box">
+            <h2>Shaivite Shrines</h2>
+            <p>Hinduism has several main branches—including Shaivism, Vaishnavism, Shaktism, Smartism, and groups like ISKCON—and each has its own style of shrine.</p>
+
+            <h3>What is Shaivism?</h3>
+            <p>Shaivism is a major branch of Hinduism where followers (Shaivites) worship Shiva as the Supreme Being. At a Shaivite shrine—either at home or in a temple (mandir)—worshippers perform daily prayers and rituals (puja) to find spiritual peace.</p>
+
+            <h3>How is it different?</h3>
+            <p>While all Hindu branches include chanting and festivals, Shaivism places a much stronger focus on meditation, yoga, and asceticism (simple, self-disciplined living). In contrast, branches like Shaktism focus more on chanting and large festivals.</p>
+
+            <h3>Key features of a traditional Shaivite shrine:</h3>
+            <ul>
+                <li><strong>Flower roots:</strong> The word puja likely comes from the ancient Tamil word <em>pu</em>, meaning "flower."</li>
+                <li><strong>VIP treatment:</strong> Deities are treated like honoured guests—worshippers wake them, bathe them, dress them, and serve them meals.</li>
+                <li><strong>All five senses:</strong> It engages sight (lamps), sound (bells), smell (incense), touch (sacred water), and taste (blessed food).</li>
+                <li><strong>Blessed leftovers:</strong> Food offered during the ritual becomes prasad and is shared with everyone afterward.</li>
+                <li><strong>Not just for gods:</strong> Special pujas also honour everyday things, including Kukur Tihar (a festival celebrating dogs) and Vishwakarma Puja (blessing tools and vehicles).</li>
+                <li><strong>Eyes painted last:</strong> For big clay statues, artisans paint the eyes on in the dark at the very end to symbolically bring the deity to life.</li>
+            </ul>
+
+            <img src="shaivite.jpg" alt="Shaivite Shrine" class="main-img">
+        </div>
 
     </div>
 
     <footer>
-        <p>Year 8 Religious Studies Project</p>
-        <p>Made by <strong>Ayrton, Nik, Aiden, and Jayden</strong></p>
+        <p>Made by <span>Ayrton, Nik, Aiden, and Jayden</span></p>
     </footer>
 
 </body>
